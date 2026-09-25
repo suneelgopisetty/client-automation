@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Automation · FOX</title>
+  <!-- Same Typekit kit as foxcorporation.com (urw-din — Leadership nav font) -->
+  <link rel="stylesheet" href="https://use.typekit.net/mxz5gvr.css" />
+  <!-- Fallback if Typekit is domain-locked on localhost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/portal.css?v=stack3" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <button type="button" class="brand brand-home" id="brand-home" aria-label="Go to home">
+        <img class="fox-logo" src="assets/fox-logo.svg" width="120" height="46" alt="FOX" title="Fox Corporation" />
+        <div>
+          <h1>Client Automation</h1>
+          <p class="subtitle">FOX One · FOX Sports · FOX Weather · Client SDET</p>
+        </div>
+      </button>
+    </div>
+    <p class="meta" id="data-updated">Loading…</p>
+    <div class="legend" aria-label="Status legend">
+      <span class="legend-item"><i class="dot pass"></i> Passed</span>
+      <span class="legend-item"><i class="dot fail"></i> Failed</span>
+      <span class="legend-item"><i class="dot skip"></i> Skipped</span>
+      <span class="legend-item"><i class="dot warn"></i> Partial</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="view-home" class="view" aria-label="Products">
+      <div class="home-layout">
+        <div class="home-main">
+          <h2 class="view-title anim-fade">Choose a product</h2>
+          <div id="product-tiles" class="tiles tiles-products"></div>
+
+          <section class="home-charts" aria-label="Recent release charts">
+            <h2 class="view-title chart-section-title">Release graphs — by client</h2>
+            <div id="charts-by-client" class="chart-grid"></div>
+            <div id="charts-by-platform" class="chart-grid hidden" hidden aria-hidden="true"></div>
+          </section>
+        </div>
+
+        <aside class="home-aside" aria-label="Self-host runner devices">
+          <div class="runners-panel">
+            <div class="runners-panel-head">
+              <h2 class="runners-title">Self-host runners</h2>
+              <p class="runners-sub">Lab devices · live status</p>
+            </div>
+            <div class="runners-filters" aria-label="Runner status legend">
+              <span class="runner-pill online"><i></i> Online</span>
+              <span class="runner-pill busy"><i></i> Busy</span>
+              <span class="runner-pill offline"><i></i> Offline</span>
+            </div>
+            <div id="runners-list" class="runners-list"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="view-product" class="view hidden" aria-label="Platform groups">
+      <div class="nav-row">
+        <button type="button" class="home-btn home-btn-inline" data-go-home>Home</button>
+        <button type="button" class="back" id="back-home">← All products</button>
+      </div>
+      <div id="product-heading" class="page-heading"></div>
+      <div id="group-sections" class="group-sections"></div>
+    </section>
+
+    <section id="view-platform" class="view hidden" aria-label="Platform runs">
+      <div class="nav-row">
+        <button type="button" class="home-btn home-btn-inline" data-go-home>Home</button>
+        <button type="button" class="back" id="back-product">← Back to platforms</button>
+      </div>
+      <div id="platform-heading" class="page-heading"></div>
+      <div id="run-list" class="run-list"></div>
+    </section>
+
+    <section id="view-detail" class="view hidden" aria-label="Run detail">
+      <div class="nav-row">
+        <button type="button" class="home-btn home-btn-inline" data-go-home>Home</button>
+        <button type="button" class="back" id="back-platform">← Back to runs</button>
+      </div>
+      <div id="run-detail" class="run-detail"></div>
+    </section>
+
+    <p id="load-error" class="error hidden" role="alert"></p>
+  </main>
+
+  <script src="js/portal.js?v=stack3"></script>
+</body>
+</html>

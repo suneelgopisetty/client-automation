@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-label="FOX Sports">
+  <!-- FOX Sports wordmark approximation -->
+  <text x="0" y="34" font-family="Arial Black, Impact, Helvetica Neue, Arial, sans-serif" font-size="36" font-weight="900" letter-spacing="0.02em" fill="#FFFFFF">FOX</text>
+  <text x="0" y="64" font-family="Arial Black, Impact, Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="0.12em" fill="#FFFFFF">SPORTS</text>
+  <rect x="0" y="68" width="148" height="3" fill="#E31C23"/>
+</svg>

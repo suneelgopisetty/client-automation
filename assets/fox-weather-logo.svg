@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 72" role="img" aria-label="FOX Weather">
+  <!-- FOX Weather wordmark + sun/cloud mark approximation -->
+  <defs>
+    <linearGradient id="wxSun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="wxCloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F4FF"/>
+      <stop offset="100%" stop-color="#93C5FD"/>
+    </linearGradient>
+  </defs>
+  <!-- weather icon -->
+  <circle cx="28" cy="28" r="12" fill="url(#wxSun)"/>
+  <ellipse cx="42" cy="40" rx="22" ry="12" fill="url(#wxCloud)"/>
+  <ellipse cx="26" cy="42" rx="14" ry="9" fill="#F0F9FF"/>
+  <text x="72" y="34" font-family="Arial Black, Impact, Helvetica Neue, Arial, sans-serif" font-size="32" font-weight="900" letter-spacing="0.02em" fill="#FFFFFF">FOX</text>
+  <text x="72" y="62" font-family="Arial Black, Impact, Helvetica Neue, Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="0.08em" fill="#7DD3FC">WEATHER</text>
+</svg>

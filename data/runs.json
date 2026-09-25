@@ -1,0 +1,1500 @@
+{
+  "updatedAt": "2026-09-25T09:18:51Z",
+  "products": [
+    {
+      "id": "foxone",
+      "label": "FOX One"
+    },
+    {
+      "id": "foxsports",
+      "label": "FOX Sports"
+    },
+    {
+      "id": "foxweather",
+      "label": "FOX Weather"
+    }
+  ],
+  "groups": [
+    {
+      "id": "lr",
+      "label": "Living Room (LR)",
+      "platforms": [
+        {
+          "id": "roku",
+          "label": "Roku"
+        },
+        {
+          "id": "firetv",
+          "label": "FireTV"
+        },
+        {
+          "id": "appletv",
+          "label": "Apple TV"
+        }
+      ]
+    },
+    {
+      "id": "tvapps",
+      "label": "TV Apps",
+      "platforms": [
+        {
+          "id": "samsung",
+          "label": "Samsung"
+        },
+        {
+          "id": "lg",
+          "label": "LG"
+        },
+        {
+          "id": "vizio",
+          "label": "VIZIO"
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "label": "Mobile",
+      "platforms": [
+        {
+          "id": "iphone",
+          "label": "iPhone"
+        },
+        {
+          "id": "android",
+          "label": "Android"
+        }
+      ]
+    },
+    {
+      "id": "web",
+      "label": "Web",
+      "platforms": [
+        {
+          "id": "web",
+          "label": "Web"
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "35968472408",
+      "product": "foxone",
+      "platform": "roku",
+      "completedAt": "2026-09-25T07:57:18Z",
+      "conclusion": "success",
+      "device": "192.168.1.19",
+      "sourceDetail": "OS \u2014",
+      "appVersion": "v1.21 (7247)",
+      "durationSec": 2233,
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "passRatePct": 100,
+      "executionSummary": [
+        "Home container scroll \u2014 Passed",
+        "Verify Search and Playback from Search \u2014 Passed",
+        "Verify E2E Sanity Navigation Flow \u2014 Passed",
+        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff \u2014 Passed",
+        "League Hub from Sports \u2014 navigate, UI, background scroll, More Leagues, nested back \u2014 Passed",
+        "League Hub from Sports \u2014 navigate, UI, background scroll, More Leagues switch \u2014 Passed",
+        "Live Guide: Guide nav, Guide playback, Upcoming nav \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35968472408",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35968472408",
+          "kind": "dashboard"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35968472408",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.21"
+    },
+    {
+      "id": "35955791753",
+      "product": "foxone",
+      "platform": "roku",
+      "completedAt": "2026-09-24T04:28:27Z",
+      "conclusion": "failure",
+      "device": "192.168.1.19",
+      "sourceDetail": "OS \u2014",
+      "appVersion": "v1.21 (7247)",
+      "durationSec": 1257,
+      "passed": 3,
+      "failed": 6,
+      "total": 62,
+      "passRatePct": 4.8,
+      "executionSummary": [
+        "Home container scroll \u2014 Failed",
+        "Verify Search and Playback from Search \u2014 Failed",
+        "Verify E2E Sanity Navigation Flow \u2014 Failed",
+        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff \u2014 Failed",
+        "League Hub from Home \u2014 navigate, UI, background scroll, More Leagues, nested back \u2014 Failed",
+        "Live Guide: Guide nav, Guide playback, Upcoming nav \u2014 Failed"
+      ],
+      "failures": [
+        "Containers > Navigation Scroll: Home container scroll",
+        "Verify Search and Playback from Search",
+        "Verify E2E Sanity Navigation Flow",
+        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff",
+        "League Hub from Home \u2014 navigate, UI, background scroll, More Leagues, nested back",
+        "Live Guide: Guide nav, Guide playback, Upcoming nav"
+      ],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35955791753",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35955791753",
+          "kind": "dashboard"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35955791753",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.21"
+    },
+    {
+      "id": "35578314662",
+      "product": "foxone",
+      "platform": "firetv",
+      "completedAt": "2026-09-21T08:53:53Z",
+      "conclusion": "success",
+      "device": "G072JN01405306MJ,G071R20822222L6X",
+      "sourceDetail": "FireOS 8.1",
+      "appVersion": "v1.18.1 (520260910)",
+      "durationSec": 1215,
+      "passed": 8,
+      "failed": 0,
+      "total": 8,
+      "passRatePct": 100,
+      "executionSummary": [
+        "Home container scroll \u2014 Passed",
+        "Verify Search and Playback from Search \u2014 Passed",
+        "Verify E2E Sanity Navigation Flow \u2014 Passed",
+        "TV Provider / My Stuff flow \u2014 Passed",
+        "League Hub from Sports \u2014 Passed",
+        "Live Guide flow \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35578314662",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35578314662",
+          "kind": "dashboard"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35578314662",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.18.1"
+    },
+    {
+      "id": "35582408052",
+      "product": "foxone",
+      "platform": "firetv",
+      "completedAt": "2026-09-21T09:41:24Z",
+      "conclusion": "success",
+      "device": "G072JN01405306MJ,G071R20822222L6X",
+      "sourceDetail": "FireOS 8.1",
+      "appVersion": "v1.18.2 (520260918)",
+      "durationSec": 1288,
+      "passed": 8,
+      "failed": 0,
+      "total": 8,
+      "passRatePct": 100,
+      "executionSummary": [
+        "Auth / Sign In \u2014 Failed",
+        "Home navigation \u2014 Passed",
+        "Playback smoke \u2014 Failed"
+      ],
+      "failures": [
+        "Auth > Sign In",
+        "Playback smoke"
+      ],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35582408052",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35582408052",
+          "kind": "dashboard"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35582408052",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.18.2"
+    },
+    {
+      "id": "36055713757",
+      "product": "foxone",
+      "platform": "vizio",
+      "completedAt": "2026-09-24T20:59:38Z",
+      "conclusion": "failure",
+      "device": "Vizio TVLabs Cloud",
+      "sourceDetail": "TVLabs",
+      "env": "RC",
+      "appVersion": "latest",
+      "durationSec": 1127,
+      "passed": 2,
+      "failed": 4,
+      "skipped": 7,
+      "total": 13,
+      "passRatePct": 15.4,
+      "executionSummary": [
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Failed",
+        "Search Feature \u2014 Failed",
+        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Failed",
+        "Live Guide / Overlay Feature Add to My Stuff \u2014 Failed",
+        "Sign In Feature \u2014 Skipped"
+      ],
+      "failures": [
+        "VOD Playback Feature",
+        "Search Feature",
+        "Subscriptions:SideNav-Navigation URL Validation Feature",
+        "Live Guide / Overlay Feature Add to My Stuff"
+      ],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36055713757/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36055713757/",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-webapps-ai-unified-automation/actions/runs/36055713757",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "latest"
+    },
+    {
+      "id": "36055548356",
+      "product": "foxone",
+      "platform": "lg",
+      "completedAt": "2026-09-24T20:47:14Z",
+      "conclusion": "failure",
+      "device": "LG TVLabs Cloud",
+      "sourceDetail": "TVLabs",
+      "env": "RC",
+      "appVersion": "latest",
+      "durationSec": 478,
+      "passed": 3,
+      "failed": 2,
+      "skipped": 8,
+      "total": 13,
+      "passRatePct": 23.1,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Passed",
+        "Search Feature \u2014 Failed",
+        "Side Navigation Feature- Navigate to All Screens \u2014 Failed"
+      ],
+      "failures": [
+        "Search Feature",
+        "Side Navigation Feature- Navigate to All Screens"
+      ],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36055548356/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36055548356/",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-webapps-ai-unified-automation/actions/runs/36055548356",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "latest"
+    },
+    {
+      "id": "36055685685",
+      "product": "foxone",
+      "platform": "samsung",
+      "completedAt": "2026-09-24T20:44:26Z",
+      "conclusion": "failure",
+      "device": "Samsung TVLabs Cloud",
+      "sourceDetail": "TVLabs",
+      "env": "RC",
+      "appVersion": "latest",
+      "durationSec": 243,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 11,
+      "total": 13,
+      "passRatePct": 7.7,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Failed"
+      ],
+      "failures": [
+        "Settings Feature"
+      ],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36055685685/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36055685685/",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-webapps-ai-unified-automation/actions/runs/36055685685",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "latest"
+    },
+    {
+      "id": "36041275471",
+      "product": "foxone",
+      "platform": "vizio",
+      "completedAt": "2026-09-24T18:47:45Z",
+      "conclusion": "success",
+      "device": "Vizio TVLabs Cloud",
+      "sourceDetail": "TVLabs",
+      "env": "PROD",
+      "appVersion": "latest",
+      "durationSec": 855,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "total": 11,
+      "passRatePct": 100,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Passed",
+        "Search Feature \u2014 Passed",
+        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Passed",
+        "Live Guide / Overlay Feature Add to My Stuff \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36041275471/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36041275471/",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-webapps-ai-unified-automation/actions/runs/36041275471",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "latest"
+    },
+    {
+      "id": "36034827144",
+      "product": "foxone",
+      "platform": "samsung",
+      "completedAt": "2026-09-24T17:52:03Z",
+      "conclusion": "success",
+      "device": "Samsung TVLabs Cloud",
+      "sourceDetail": "TVLabs",
+      "env": "RC",
+      "appVersion": "latest",
+      "durationSec": 883,
+      "passed": 11,
+      "failed": 0,
+      "total": 11,
+      "passRatePct": 100,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Passed",
+        "Search Feature \u2014 Passed",
+        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Passed",
+        "Live Guide / Overlay Feature Add to My Stuff \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36034827144/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36034827144/",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-webapps-ai-unified-automation/actions/runs/36034827144",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "latest"
+    },
+    {
+      "id": "36034917361",
+      "product": "foxone",
+      "platform": "lg",
+      "completedAt": "2026-09-24T17:50:17Z",
+      "conclusion": "failure",
+      "device": "LG TVLabs Cloud",
+      "sourceDetail": "TVLabs",
+      "env": "RC",
+      "appVersion": "latest",
+      "durationSec": 704,
+      "passed": 9,
+      "failed": 1,
+      "skipped": 3,
+      "total": 13,
+      "passRatePct": 69.2,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Passed",
+        "Search Feature \u2014 Passed",
+        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Passed",
+        "Live Guide / Overlay Feature Add to My Stuff \u2014 Passed"
+      ],
+      "failures": [
+        "(1 feature failed \u2014 see Slack / HTML report)"
+      ],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36034917361/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36034917361/",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-webapps-ai-unified-automation/actions/runs/36034917361",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "latest"
+    },
+    {
+      "id": "35963317927",
+      "product": "foxone",
+      "platform": "iphone",
+      "completedAt": "2026-09-24T07:52:21Z",
+      "conclusion": "failure",
+      "device": "Rahul Rathod's iPad",
+      "sourceDetail": "iOS 26.6",
+      "env": "RC",
+      "appVersion": "v1.30.0 # 20260922.2",
+      "durationSec": 2382,
+      "passed": 8,
+      "failed": 2,
+      "total": 10,
+      "passRatePct": 80.0,
+      "executionSummary": [
+        "Verify Sign-In/out is working as expected \u2014 Passed",
+        "Playback for VOD and Live, Clips, Playlist is working as expected \u2014 Passed",
+        "Navigate to all the pages of the app \u2014 Passed",
+        "SearchV2 + Customer Care Need Help functionality is working as expected \u2014 Passed",
+        "MVPD Sign-In/out is working as expected \u2014 Failed"
+      ],
+      "failures": [
+        "MVPD Sign-In/out is working as expected",
+        "TV Provider Functionality"
+      ],
+      "reportUrl": "https://glowing-adventure-r261g9v.pages.github.io/reports/35963317927/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://glowing-adventure-r261g9v.pages.github.io/reports/35963317927/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v1.30.0"
+    },
+    {
+      "id": "35959640103",
+      "product": "foxone",
+      "platform": "android",
+      "completedAt": "2026-09-24T05:40:15Z",
+      "conclusion": "success",
+      "device": "Samsung SM-X200",
+      "sourceDetail": "Android 14",
+      "env": "STAGE",
+      "appVersion": "v1.23.0 # 26092302",
+      "durationSec": 837,
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Verify Sign-In/out is working as expected \u2014 Passed",
+        "Playback for VOD and Live, Clips, Playlist is working as expected \u2014 Passed",
+        "Navigate to all the pages of the app \u2014 Passed",
+        "SearchV2 + Customer Care Need Help functionality is working as expected \u2014 Passed",
+        "MVPD Sign-In/out is working as expected \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://glowing-adventure-r261g9v.pages.github.io/reports/35959640103/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://glowing-adventure-r261g9v.pages.github.io/reports/35959640103/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v1.23.0"
+    },
+    {
+      "id": "35956412758",
+      "product": "foxone",
+      "platform": "android",
+      "completedAt": "2026-09-24T04:52:27Z",
+      "conclusion": "success",
+      "device": "Samsung SM-F956B",
+      "sourceDetail": "Android 16",
+      "env": "STAGE",
+      "appVersion": "v1.23.0 # 26092302",
+      "durationSec": 694,
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Verify Sign-In/out is working as expected \u2014 Passed",
+        "Playback for VOD and Live, Clips, Playlist is working as expected \u2014 Passed",
+        "Navigate to all the pages of the app \u2014 Passed",
+        "SearchV2 + Customer Care Need Help functionality is working as expected \u2014 Passed",
+        "MVPD Sign-In/out is working as expected \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://glowing-adventure-r261g9v.pages.github.io/reports/35956412758/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://glowing-adventure-r261g9v.pages.github.io/reports/35956412758/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v1.23.0"
+    },
+    {
+      "id": "35612806196",
+      "product": "foxone",
+      "platform": "appletv",
+      "completedAt": "2026-09-21T14:53:55Z",
+      "conclusion": "success",
+      "device": "Apple TV 4K",
+      "sourceDetail": "OS 26.5",
+      "appVersion": "v1.24.0 (2026121079)",
+      "durationSec": 1101,
+      "passed": 6,
+      "failed": 0,
+      "total": 6,
+      "passRatePct": 100,
+      "executionSummary": [
+        "Verify E2E Sanity Navigation Flow \u2014 Passed",
+        "Home container scroll \u2014 Passed",
+        "My Stuff container scroll \u2014 Passed",
+        "Sports container scroll \u2014 Passed",
+        "News container scroll \u2014 Passed",
+        "Shows container scroll \u2014 Passed",
+        "Sign in \u2014 Passed",
+        "Traveling prompt \u2014 Yes, I'm traveling \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35612806196",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35612806196",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35612806196",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.24.0"
+    },
+    {
+      "id": "35608033257",
+      "product": "foxone",
+      "platform": "appletv",
+      "completedAt": "2026-09-21T14:07:17Z",
+      "conclusion": "failure",
+      "device": "Apple TV 4K",
+      "sourceDetail": "OS 26.5",
+      "appVersion": "v1.24.0 (2026121079)",
+      "durationSec": 820,
+      "passed": 1,
+      "failed": 1,
+      "total": 2,
+      "passRatePct": 50,
+      "executionSummary": [
+        "Verify E2E Sanity Navigation Flow \u2014 Failed",
+        "MVPD Sign In / Sign Out via Xfinity \u2014 Passed",
+        "Sign out / Sign in \u2014 Passed",
+        "Traveling prompt \u2014 Yes, I'm traveling \u2014 Passed",
+        "Verify Search and Playback from Search \u2014 Passed",
+        "Playback: Series, Live, Movies \u2014 Passed"
+      ],
+      "failures": [
+        "Verify E2E Sanity Navigation Flow"
+      ],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35608033257",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35608033257",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35608033257",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.24.0"
+    },
+    {
+      "id": "35605430794",
+      "product": "foxone",
+      "platform": "appletv",
+      "completedAt": "2026-09-21T13:48:49Z",
+      "conclusion": "failure",
+      "device": "Apple TV 4K",
+      "sourceDetail": "OS 26.5",
+      "appVersion": "v1.24.0 (2026121079)",
+      "durationSec": 775,
+      "passed": 1,
+      "failed": 1,
+      "total": 2,
+      "passRatePct": 50,
+      "executionSummary": [
+        "Verify E2E Sanity Navigation Flow \u2014 Passed",
+        "MVPD Sign In / Sign Out via Xfinity \u2014 Failed",
+        "Sign out / Sign in \u2014 Passed",
+        "Traveling prompt \u2014 Yes, I'm traveling \u2014 Passed",
+        "Verify Search and Playback from Search \u2014 Passed",
+        "Playback: Series, Live, Movies \u2014 Passed"
+      ],
+      "failures": [
+        "MVPD Sign In / Sign Out via Xfinity"
+      ],
+      "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35605430794",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35605430794",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-LR-ai-unified-automation/actions/runs/35605430794",
+          "kind": "actions"
+        }
+      ],
+      "releaseVersion": "v1.24.0"
+    },
+    {
+      "id": "35850619991",
+      "product": "foxsports",
+      "platform": "iphone",
+      "completedAt": "2026-09-23T11:07:49Z",
+      "conclusion": "success",
+      "device": "iPhone 17 Pro",
+      "sourceDetail": "iOS 26.5",
+      "env": "PROD",
+      "appVersion": "v5.160.0 # 5160000",
+      "durationSec": 1131,
+      "passed": 14,
+      "failed": 0,
+      "total": 14,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Entity Pages \u2014 Passed",
+        "Favorites \u2014 Passed",
+        "Home Header Validation \u2014 Passed",
+        "Home League Selection Bar \u2014 Passed",
+        "Fox Account Auth \u2014 Passed",
+        "Scores \u2014 Passed",
+        "Search \u2014 Passed",
+        "Sports AI Onboarding \u2014 Passed",
+        "TV Provider Sign In \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35850619991/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://laughing-system-8g7mw54.pages.github.io/reports/35850619991/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v5.160.0"
+    },
+    {
+      "id": "35850836993",
+      "product": "foxsports",
+      "platform": "android",
+      "completedAt": "2026-09-23T11:04:35Z",
+      "conclusion": "success",
+      "device": "Pixel 10a",
+      "sourceDetail": "Android 17",
+      "env": "PROD",
+      "appVersion": "v5.159.0 # 515900000",
+      "durationSec": 852,
+      "passed": 14,
+      "failed": 0,
+      "total": 14,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Entity Pages \u2014 Passed",
+        "Favorites \u2014 Passed",
+        "Home Header Validation \u2014 Passed",
+        "Home League Selection Bar \u2014 Passed",
+        "Fox Account Auth \u2014 Passed",
+        "Scores \u2014 Passed",
+        "Search \u2014 Passed",
+        "Sports AI Onboarding \u2014 Passed",
+        "TV Provider Sign In \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35850836993/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://laughing-system-8g7mw54.pages.github.io/reports/35850836993/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v5.159.0"
+    },
+    {
+      "id": "35718516945",
+      "product": "foxsports",
+      "platform": "iphone",
+      "completedAt": "2026-09-22T11:16:32Z",
+      "conclusion": "success",
+      "device": "iPhone 17 Pro",
+      "sourceDetail": "iOS 26.5",
+      "env": "PROD",
+      "appVersion": "v5.160.0 # 5160000",
+      "durationSec": 1147,
+      "passed": 14,
+      "failed": 0,
+      "total": 14,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Entity Pages \u2014 Passed",
+        "Favorites \u2014 Passed",
+        "Home Header Validation \u2014 Passed",
+        "Home League Selection Bar \u2014 Passed",
+        "Fox Account Auth \u2014 Passed",
+        "Scores \u2014 Passed",
+        "Search \u2014 Passed",
+        "Sports AI Onboarding \u2014 Passed",
+        "TV Provider Sign In \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35718516945/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://laughing-system-8g7mw54.pages.github.io/reports/35718516945/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v5.160.0"
+    },
+    {
+      "id": "35716561623",
+      "product": "foxsports",
+      "platform": "android",
+      "completedAt": "2026-09-22T10:50:28Z",
+      "conclusion": "success",
+      "device": "Pixel 10a",
+      "sourceDetail": "Android 17",
+      "env": "PROD",
+      "appVersion": "v5.159.0 # 515900000",
+      "durationSec": 912,
+      "passed": 14,
+      "failed": 0,
+      "total": 14,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Entity Pages \u2014 Passed",
+        "Favorites \u2014 Passed",
+        "Home Header Validation \u2014 Passed",
+        "Home League Selection Bar \u2014 Passed",
+        "Fox Account Auth \u2014 Passed",
+        "Scores \u2014 Passed",
+        "Search \u2014 Passed",
+        "Sports AI Onboarding \u2014 Passed",
+        "TV Provider Sign In \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35716561623/",
+      "reportLabel": "View Dashboard",
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://laughing-system-8g7mw54.pages.github.io/reports/35716561623/",
+          "kind": "dashboard"
+        }
+      ],
+      "releaseVersion": "v5.159.0"
+    },
+    {
+      "id": "35831908308",
+      "product": "foxweather",
+      "platform": "iphone",
+      "completedAt": "2026-09-23T12:39:38Z",
+      "conclusion": "failure",
+      "device": "iPhone 17",
+      "sourceDetail": "iOS 26.2",
+      "env": "PROD",
+      "appVersion": "v3.13.0 # 1",
+      "durationSec": 2976,
+      "passed": 47,
+      "failed": 10,
+      "skipped": 5,
+      "total": 57,
+      "passRatePct": 82.5,
+      "slackChannel": "#fw-automation-test",
+      "executionSummary": [
+        "Read (News) \u2014 Failed (0 pass / 5 fail / 5 skipped)",
+        "Home \u2014 Failed (10 pass / 2 fail)",
+        "Settings \u2014 Failed (31 pass / 2 fail)",
+        "Events \u2014 Failed (6 pass / 1 fail)",
+        "Notifications enabled by default for added locations \u2014 Passed",
+        "Weather location selection changes details screen \u2014 Passed",
+        "Hourly / 14-Day / Historical tabs \u2014 Passed",
+        "Search results appear while typing \u2014 Passed"
+      ],
+      "failures": [
+        "Read (News) module \u2014 5 feature fails",
+        "Home module \u2014 2 feature fails",
+        "Settings module \u2014 2 feature fails",
+        "Events module \u2014 1 feature fail"
+      ],
+      "reportUrl": "https://github.com/fox-weather/fox-weather-mobile-ai-automation/actions/runs/35831908308",
+      "reportLabel": "View Report",
+      "links": [
+        {
+          "label": "View Report",
+          "url": "https://github.com/fox-weather/fox-weather-mobile-ai-automation/actions/runs/35831908308",
+          "kind": "html"
+        }
+      ],
+      "releaseVersion": "v3.13.0"
+    },
+    {
+      "id": "35828381145",
+      "product": "foxweather",
+      "platform": "android",
+      "completedAt": "2026-09-23T07:21:15Z",
+      "conclusion": "failure",
+      "device": "sdk_gphone64_arm64",
+      "sourceDetail": "Android 16",
+      "env": "PROD",
+      "appVersion": "v3.11.0 # 1616",
+      "durationSec": 1883,
+      "passed": 46,
+      "failed": 1,
+      "skipped": 0,
+      "total": 47,
+      "passRatePct": 97.9,
+      "slackChannel": "#fw-automation-test",
+      "executionSummary": [
+        "Home \u2014 Failed (13 pass / 1 fail)",
+        "Events \u2014 Passed",
+        "Onboarding \u2014 Passed",
+        "Read (News) \u2014 Passed",
+        "Settings \u2014 Passed",
+        "Notifications enabled by default for added locations \u2014 Passed",
+        "Weather location selection changes details screen \u2014 Passed",
+        "Hourly / 14-Day / Historical tabs \u2014 Passed"
+      ],
+      "failures": [
+        "Home module \u2014 1 feature fail"
+      ],
+      "reportUrl": "https://github.com/fox-weather/fox-weather-mobile-ai-automation/actions/runs/35828381145",
+      "reportLabel": "View Report",
+      "links": [
+        {
+          "label": "View Report",
+          "url": "https://github.com/fox-weather/fox-weather-mobile-ai-automation/actions/runs/35828381145",
+          "kind": "html"
+        }
+      ],
+      "releaseVersion": "v3.11.0"
+    },
+    {
+      "id": "36063434974",
+      "product": "foxone",
+      "platform": "web",
+      "completedAt": "2026-09-24T22:45:42Z",
+      "conclusion": "failure",
+      "device": "Chrome / Web",
+      "sourceDetail": "Momentic E2E \u00b7 #foxone_web_alerts",
+      "env": "PRE",
+      "appVersion": "Momentic E2E",
+      "releaseVersion": "momentic-68",
+      "durationSec": 3100,
+      "passed": 88,
+      "failed": 18,
+      "total": 106,
+      "passRatePct": 83.0,
+      "reportUrl": "https://dev-automation.foxplus.com/reports/momentic/68_2026-09-24_22-43-06/grouped.html",
+      "reportLabel": "View Report",
+      "links": [
+        {
+          "label": "View Report",
+          "url": "https://dev-automation.foxplus.com/reports/momentic/68_2026-09-24_22-43-06/grouped.html",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-web-fe-momentic-ai/actions/runs/36063434974",
+          "kind": "actions"
+        }
+      ],
+      "executionSummary": [
+        "Momentic E2E all \u2014 83.0%"
+      ],
+      "failures": [
+        "live controls dvr",
+        "vod controls scrub",
+        "locked packages",
+        "non entitled paywall"
+      ]
+    },
+    {
+      "id": "36032443054",
+      "product": "foxone",
+      "platform": "web",
+      "completedAt": "2026-09-24T17:42:27Z",
+      "conclusion": "failure",
+      "device": "Chrome / Web",
+      "sourceDetail": "Momentic E2E \u00b7 #foxone_web_alerts",
+      "env": "PRE",
+      "appVersion": "Momentic E2E",
+      "releaseVersion": "momentic-65",
+      "durationSec": 1534,
+      "passed": 42,
+      "failed": 11,
+      "total": 53,
+      "passRatePct": 79.2,
+      "reportUrl": "https://dev-automation.foxplus.com/reports/momentic/65_2026-09-24_17-41-18/grouped.html",
+      "reportLabel": "View Report",
+      "links": [
+        {
+          "label": "View Report",
+          "url": "https://dev-automation.foxplus.com/reports/momentic/65_2026-09-24_17-41-18/grouped.html",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-web-fe-momentic-ai/actions/runs/36032443054",
+          "kind": "actions"
+        }
+      ],
+      "executionSummary": [
+        "Momentic E2E all \u2014 79.2%"
+      ],
+      "failures": [
+        "vod endcard autoplay",
+        "vod player controls",
+        "locked packages"
+      ]
+    },
+    {
+      "id": "35904069196",
+      "product": "foxone",
+      "platform": "web",
+      "completedAt": "2026-09-23T19:12:48Z",
+      "conclusion": "failure",
+      "device": "Chrome / Web",
+      "sourceDetail": "Momentic E2E \u00b7 #foxone_web_alerts",
+      "env": "PRE",
+      "appVersion": "Momentic E2E",
+      "releaseVersion": "momentic-64",
+      "durationSec": 1478,
+      "passed": 41,
+      "failed": 12,
+      "total": 53,
+      "passRatePct": 77.4,
+      "reportUrl": "https://dev-automation.foxplus.com/reports/momentic/64_2026-09-23_19-11-12/grouped.html",
+      "reportLabel": "View Report",
+      "links": [
+        {
+          "label": "View Report",
+          "url": "https://dev-automation.foxplus.com/reports/momentic/64_2026-09-23_19-11-12/grouped.html",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp-product/foxone-web-fe-momentic-ai/actions/runs/35904069196",
+          "kind": "actions"
+        }
+      ],
+      "executionSummary": [
+        "Momentic E2E all \u2014 77.4%"
+      ],
+      "failures": [
+        "vod endcard autoplay",
+        "vod player controls",
+        "locked packages",
+        "non entitled paywall"
+      ]
+    },
+    {
+      "id": "36039671370",
+      "product": "foxsports",
+      "platform": "web",
+      "completedAt": "2026-09-24T19:00:18Z",
+      "conclusion": "success",
+      "device": "Chrome desktop",
+      "sourceDetail": "Daily E2E \u00b7 #fscom-automation-test",
+      "env": "PROD",
+      "appVersion": "24c5e3e",
+      "releaseVersion": "24c5e3e",
+      "durationSec": 3600,
+      "passed": 61,
+      "failed": 0,
+      "total": 61,
+      "passRatePct": 100.0,
+      "reportUrl": "https://foxcorp.github.io/fscom-web-ai-automation/runs/2026-09-24_36039671370/index.html",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://foxcorp.github.io/fscom-web-ai-automation/runs/2026-09-24_36039671370/index.html",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp/fscom-web-ai-automation/actions/runs/36039671370",
+          "kind": "actions"
+        }
+      ],
+      "executionSummary": [
+        "Daily E2E (prod) \u00b7 Chrome desktop \u2014 Passed"
+      ],
+      "failures": []
+    },
+    {
+      "id": "34512852340",
+      "product": "foxsports",
+      "platform": "web",
+      "completedAt": "2026-09-10T18:17:15Z",
+      "conclusion": "success",
+      "device": "chromium",
+      "sourceDetail": "FSCOM Web E2E \u00b7 #fscom-automation-test",
+      "env": "PROD",
+      "appVersion": "fd7ea21",
+      "releaseVersion": "fd7ea21",
+      "durationSec": 237,
+      "passed": 1,
+      "failed": 0,
+      "total": 1,
+      "passRatePct": 100.0,
+      "reportUrl": "https://github.com/foxcorp/fscom-web-ai-automation/actions/runs/34512852340",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://github.com/foxcorp/fscom-web-ai-automation/actions/runs/34512852340",
+          "kind": "html"
+        },
+        {
+          "label": "GitHub Actions",
+          "url": "https://github.com/foxcorp/fscom-web-ai-automation/actions/runs/34512852340",
+          "kind": "actions"
+        }
+      ],
+      "executionSummary": [
+        "FSCOM Web E2E \u2014 Passed"
+      ],
+      "failures": []
+    },
+    {
+      "id": "33796946371",
+      "product": "foxsports",
+      "platform": "web",
+      "completedAt": "2026-09-03T20:36:44Z",
+      "conclusion": "failure",
+      "device": "api, chromium, mobile-safari",
+      "sourceDetail": "full suite \u00b7 #fscom-automation-test",
+      "env": "PROD",
+      "appVersion": "605369b",
+      "releaseVersion": "605369b",
+      "durationSec": 3741,
+      "passed": 101,
+      "failed": 1,
+      "skipped": 22,
+      "total": 102,
+      "passRatePct": 99.0,
+      "reportUrl": "https://foxcorp.github.io/fscom-web-ai-automation/runs/2026-09-03_33796946371/index.html",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://foxcorp.github.io/fscom-web-ai-automation/runs/2026-09-03_33796946371/index.html",
+          "kind": "html"
+        }
+      ],
+      "executionSummary": [
+        "full Validation \u2014 99.0%"
+      ],
+      "failures": [
+        "Auth (1)"
+      ]
+    }
+  ],
+  "slackChannels": {
+    "foxone_lr": "#client-lr-automation-stats",
+    "foxone_tvapps": "#client-tvapps-qaautomation-stats",
+    "foxone_mobile": "#client-mobile-automation-stats",
+    "foxone_appletv": "#client-tvos-automation-stats",
+    "foxsports_mobile": "#fsapp-automation-test",
+    "foxweather_mobile": "#fw-automation-test",
+    "foxone_web": "#foxone_web_alerts",
+    "foxsports_web": "#fscom-automation-test"
+  },
+  "runners": [
+    {
+      "id": "roku-1",
+      "name": "192.168.1.19",
+      "platform": "roku",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "busy",
+      "os": "OS \u2014",
+      "appVersion": "v1.21 (7247)",
+      "lastSeenAt": "2026-09-25T07:57:18Z",
+      "lastRunId": "35968472408",
+      "lastPassRatePct": 100
+    },
+    {
+      "id": "iphone-5",
+      "name": "Rahul Rathod's iPad",
+      "platform": "iphone",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "online",
+      "os": "iOS 26.6",
+      "appVersion": "v1.30.0 # 20260922.2",
+      "lastSeenAt": "2026-09-24T07:52:21Z",
+      "lastRunId": "35963317927",
+      "lastPassRatePct": 80.0
+    },
+    {
+      "id": "android-6",
+      "name": "Samsung SM-X200",
+      "platform": "android",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "online",
+      "os": "Android 14",
+      "appVersion": "v1.23.0 # 26092302",
+      "lastSeenAt": "2026-09-24T05:40:15Z",
+      "lastRunId": "35959640103",
+      "lastPassRatePct": 100.0
+    },
+    {
+      "id": "android-7",
+      "name": "Samsung SM-F956B",
+      "platform": "android",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "online",
+      "os": "Android 16",
+      "appVersion": "v1.23.0 # 26092302",
+      "lastSeenAt": "2026-09-24T04:52:27Z",
+      "lastRunId": "35956412758",
+      "lastPassRatePct": 100.0
+    },
+    {
+      "id": "iphone-8",
+      "name": "iPhone 17",
+      "platform": "iphone",
+      "product": "foxweather",
+      "type": "self-host",
+      "status": "online",
+      "os": "iOS 26.2",
+      "appVersion": "v3.13.0 # 1",
+      "lastSeenAt": "2026-09-23T12:39:38Z",
+      "lastRunId": "35831908308",
+      "lastPassRatePct": 82.5
+    },
+    {
+      "id": "iphone-9",
+      "name": "iPhone 17 Pro",
+      "platform": "iphone",
+      "product": "foxsports",
+      "type": "self-host",
+      "status": "online",
+      "os": "iOS 26.5",
+      "appVersion": "v5.160.0 # 5160000",
+      "lastSeenAt": "2026-09-23T11:07:49Z",
+      "lastRunId": "35850619991",
+      "lastPassRatePct": 100.0
+    },
+    {
+      "id": "android-10",
+      "name": "Pixel 10a",
+      "platform": "android",
+      "product": "foxsports",
+      "type": "self-host",
+      "status": "online",
+      "os": "Android 17",
+      "appVersion": "v5.159.0 # 515900000",
+      "lastSeenAt": "2026-09-23T11:04:35Z",
+      "lastRunId": "35850836993",
+      "lastPassRatePct": 100.0
+    },
+    {
+      "id": "appletv-12",
+      "name": "Apple TV 4K",
+      "platform": "appletv",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "offline",
+      "os": "OS 26.5",
+      "appVersion": "v1.24.0 (2026121079)",
+      "lastSeenAt": "2026-09-21T14:53:55Z",
+      "lastRunId": "35612806196",
+      "lastPassRatePct": 100
+    },
+    {
+      "id": "firetv-13",
+      "name": "G072JN01405306MJ",
+      "platform": "firetv",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "offline",
+      "os": "FireOS 8.1",
+      "appVersion": "v1.18.2 (520260918)",
+      "lastSeenAt": "2026-09-21T09:41:24Z",
+      "lastRunId": "35582408052",
+      "lastPassRatePct": 100
+    },
+    {
+      "id": "firetv-14",
+      "name": "G071R20822222L6X",
+      "platform": "firetv",
+      "product": "foxone",
+      "type": "self-host",
+      "status": "offline",
+      "os": "FireOS 8.1",
+      "appVersion": "v1.18.2 (520260918)",
+      "lastSeenAt": "2026-09-21T09:41:24Z",
+      "lastRunId": "35582408052",
+      "lastPassRatePct": 100
+    },
+    {
+      "id": "vizio-2",
+      "name": "Vizio TVLabs Cloud",
+      "platform": "vizio",
+      "product": "foxone",
+      "type": "cloud",
+      "status": "online",
+      "os": "TVLabs",
+      "appVersion": "latest",
+      "lastSeenAt": "2026-09-24T20:59:38Z",
+      "lastRunId": "36055713757",
+      "lastPassRatePct": 15.4
+    },
+    {
+      "id": "lg-3",
+      "name": "LG TVLabs Cloud",
+      "platform": "lg",
+      "product": "foxone",
+      "type": "cloud",
+      "status": "online",
+      "os": "TVLabs",
+      "appVersion": "latest",
+      "lastSeenAt": "2026-09-24T20:47:14Z",
+      "lastRunId": "36055548356",
+      "lastPassRatePct": 23.1
+    },
+    {
+      "id": "samsung-4",
+      "name": "Samsung TVLabs Cloud",
+      "platform": "samsung",
+      "product": "foxone",
+      "type": "cloud",
+      "status": "online",
+      "os": "TVLabs",
+      "appVersion": "latest",
+      "lastSeenAt": "2026-09-24T20:44:26Z",
+      "lastRunId": "36055685685",
+      "lastPassRatePct": 7.7
+    },
+    {
+      "id": "android-11",
+      "name": "sdk_gphone64_arm64",
+      "platform": "android",
+      "product": "foxweather",
+      "type": "cloud",
+      "status": "online",
+      "os": "Android 16",
+      "appVersion": "v3.11.0 # 1616",
+      "lastSeenAt": "2026-09-23T07:21:15Z",
+      "lastRunId": "35828381145",
+      "lastPassRatePct": 97.9
+    }
+  ],
+  "productGroups": {
+    "foxone": [
+      {
+        "id": "lr",
+        "label": "Living Room (LR)",
+        "platforms": [
+          {
+            "id": "roku",
+            "label": "Roku"
+          },
+          {
+            "id": "firetv",
+            "label": "FireTV"
+          },
+          {
+            "id": "appletv",
+            "label": "Apple TV"
+          }
+        ]
+      },
+      {
+        "id": "tvapps",
+        "label": "TV Apps",
+        "platforms": [
+          {
+            "id": "samsung",
+            "label": "Samsung"
+          },
+          {
+            "id": "lg",
+            "label": "LG"
+          },
+          {
+            "id": "vizio",
+            "label": "VIZIO"
+          }
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "Mobile",
+        "platforms": [
+          {
+            "id": "iphone",
+            "label": "iPhone"
+          },
+          {
+            "id": "android",
+            "label": "Android"
+          },
+          {
+            "id": "web",
+            "label": "Web"
+          }
+        ]
+      }
+    ],
+    "foxsports": [
+      {
+        "id": "mobile",
+        "label": "Mobile",
+        "platforms": [
+          {
+            "id": "iphone",
+            "label": "iPhone"
+          },
+          {
+            "id": "android",
+            "label": "Android"
+          }
+        ]
+      },
+      {
+        "id": "web",
+        "label": "Web",
+        "platforms": [
+          {
+            "id": "web",
+            "label": "Web"
+          }
+        ]
+      }
+    ],
+    "foxweather": [
+      {
+        "id": "lr",
+        "label": "Living Room (LR)",
+        "platforms": [
+          {
+            "id": "roku",
+            "label": "Roku"
+          },
+          {
+            "id": "firetv",
+            "label": "FireTV"
+          },
+          {
+            "id": "appletv",
+            "label": "Apple TV"
+          }
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "Mobile",
+        "platforms": [
+          {
+            "id": "iphone",
+            "label": "iPhone"
+          },
+          {
+            "id": "android",
+            "label": "Android"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" role="img" aria-label="Fire TV">
+  <rect width="200" height="40" rx="6" fill="#232F3E"/>
+  <text x="100" y="27" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FF9900">fire</text>
+  <text x="148" y="27" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">tv</text>
+</svg>

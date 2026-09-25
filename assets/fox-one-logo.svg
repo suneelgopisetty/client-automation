@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" role="img" aria-label="FOX One">
+  <!-- Stacked mark: FOX above, ONE pill below (matches provided artwork). Transparent bg. -->
+  <!-- White version for FOX navy portal background -->
+  <g fill="#FFFFFF">
+    <path d="M18 18h58v12H38v11h34v11H38v28H18V18z"/>
+    <path d="M118 53c0-20-12.8-35-33-35S52 33 52 53s12.8 35 33 35 33-15 33-35zm-47.5 0c0-13.2 6.8-21.5 14.5-21.5S99.5 39.8 99.5 53 92.7 74.5 85 74.5 70.5 66.2 70.5 53z"/>
+    <path d="M126 18h20l16.5 24.5L179 18h20l-25.5 32L201 98h-20.5L163.5 71 146 98h-20l26-32-26-32z"/>
+  </g>
+  <rect x="28" y="112" width="164" height="36" rx="18" ry="18" fill="#FFFFFF"/>
+  <text x="110" y="137" text-anchor="middle" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="0.08em" fill="#000000">ONE</text>
+</svg>
