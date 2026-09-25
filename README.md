@@ -1,6 +1,10 @@
 # Client Automation (exec portal)
 
-**Target URL:** `https://client-automation.fox.com`
+**Live URL (public — no GitHub login):**  
+https://suneelgopisetty.github.io/client-automation-portal/
+
+**Target corp URL (when DNS is ready):**  
+https://client-automation.fox.com
 
 Static dashboard from the Client SDET team for FOX One · FOX Sports · FOX Weather automation status.
 
