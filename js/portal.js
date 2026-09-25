@@ -1,5 +1,5 @@
 /**
- * Client Automation portal (https://client-automation.fox.com)
+ * Client Automation (https://client-automation.fox.com)
  * Client SDET · FOX One / Sports / Weather automation status
  */
 
@@ -421,16 +421,55 @@
     let ver = releaseLabel(run, index);
     if (/^R\d$/.test(ver)) return ver;
     ver = ver.replace(/^v/i, "");
-    return ver.length > 9 ? ver.slice(0, 8) : ver;
+    // Keep bar labels short — full version lives in the tooltip
+    if (/^momentic/i.test(ver)) return `R${index + 1}`;
+    if (ver.length > 7) return ver.slice(0, 6);
+    return ver;
   }
 
-  /** One stacked bar per platform: R1 (bottom) → R3 (top), segment height = pass % */
+  function statusRank(status) {
+    if (status === "status-fail") return 3;
+    if (status === "status-warn") return 2;
+    if (status === "status-none") return 1;
+    if (status === "status-pass") return 0;
+    return 1;
+  }
+
+  /** Worst latest-run status across a product's platforms (exec signal). */
+  function productWorstStatus(productId) {
+    let worst = "status-none";
+    let any = false;
+    platformsForProduct(productId).forEach((p) => {
+      const run = latestRun(productId, p.id);
+      if (!run) return;
+      any = true;
+      const st = statusClass(run);
+      if (statusRank(st) > statusRank(worst)) worst = st;
+    });
+    return any ? worst : "status-none";
+  }
+
+  function runnerDisplayName(runner) {
+    if (!runner) return "Device";
+    if (runner.assetTag) return runner.assetTag;
+    if (runner.displayName) return runner.displayName;
+    const n = String(runner.name || "").trim();
+    // Avoid personal lab names on the exec home view
+    if (!n || /['’]s\s/i.test(n) || /\b(rahul|user's)\b/i.test(n)) {
+      const plat = (runner.platform || "lab").toUpperCase();
+      const id = runner.id || "device";
+      return `${plat}-${String(id).replace(/[^a-z0-9-]/gi, "").slice(0, 12)}`;
+    }
+    return n;
+  }
+
+  /** One stacked bar per platform: latest % headline + R1→R3 stack detail */
   function clientPlatformReleaseGraphSvg(productId) {
     const plats = platformsForProduct(productId);
     const colors = releaseColors();
     const yMax = 300;
-    const H = 280;
-    const padT = 12;
+    const H = 220;
+    const padT = 8;
     const padB = 4;
     const plotH = H - padT - padB;
 
@@ -443,48 +482,53 @@
 
     const cols = plats
       .map((plat) => {
-        const runs = recentRuns(runsFor(productId, plat.id), 3).slice().reverse(); // R1→R3
-        const segments = [];
+        const newestFirst = recentRuns(runsFor(productId, plat.id), 3);
+        const runs = newestFirst.slice().reverse(); // R1→R3
+        const latest = newestFirst[0] || null;
+        const latestPct = latest != null ? Math.round(runPct(latest)) : null;
+        const latestTone =
+          latest == null
+            ? "tone-none"
+            : statusClass(latest) === "status-fail"
+              ? "tone-fail"
+              : statusClass(latest) === "status-warn"
+                ? "tone-warn"
+                : "tone-pass";
+
         let yCursor = padT + plotH;
         let bars = "";
         let labels = "";
+        const tipParts = [];
 
         for (let i = 0; i < 3; i++) {
           const run = runs[i];
           if (!run) continue;
           const pct = Math.max(0, Math.min(100, runPct(run)));
           if (pct <= 0) continue;
-          const h = Math.max((pct / yMax) * plotH, 8);
+          const h = Math.max((pct / yMax) * plotH, 6);
           const y = yCursor - h;
           const ver = shortVer(run, i);
+          const fullVer = releaseLabel(run, i);
           const date = shortDate(run.completedAt);
-          const title = `${plat.label} · R${i + 1} · ${ver || "—"} · ${Math.round(pct)}% · ${date}`;
-          bars += `<rect x="8" y="${y}" width="36" height="${h}" rx="3" fill="${colors[i]}" opacity="0.96"><title>${escapeHtml(title)}</title></rect>`;
-
-          // Always label: inside if tall enough, else to the right of the segment
-          const pctText = `${Math.round(pct)}%`;
-          const verText = ver || `R${i + 1}`;
-          if (h >= 28) {
-            labels += `<text x="26" y="${y + h / 2 - (ver ? 2 : 0)}" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            if (ver && h >= 40) {
-              labels += `<text x="26" y="${y + h / 2 + 12}" text-anchor="middle" fill="rgba(248,250,252,0.9)" font-size="9" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(verText)}</text>`;
-            }
-          } else {
-            labels += `<text x="48" y="${y + h / 2 + 3}" text-anchor="start" fill="#e2e8f0" font-size="10" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${pctText} ${escapeHtml(verText)}</text>`;
+          tipParts.push(`R${i + 1}: ${Math.round(pct)}% · ${fullVer} · ${date}`);
+          bars += `<rect x="10" y="${y}" width="32" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${Math.round(pct)}% · ${date}</title></rect>`;
+          // Percent only inside tall segments — no version text (avoids clip)
+          if (h >= 18) {
+            labels += `<text x="26" y="${y + h / 2 + 4}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${Math.round(pct)}</text>`;
           }
-          segments.push({ i, pct, ver: verText, date });
           yCursor = y;
         }
 
-        const tip = segments
-          .map((s) => `R${s.i + 1}: ${s.pct}% ${s.ver} (${s.date})`)
-          .join(" · ");
+        const headline =
+          latestPct == null
+            ? `<div class="stack-headline tone-none">—</div>`
+            : `<div class="stack-headline ${latestTone}" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">${latestPct}<span class="stack-headline-unit">%</span></div>`;
 
         return `
-          <div class="stack-col" title="${escapeHtml(tip || plat.label)}">
+          <div class="stack-col" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">
+            ${headline}
             <svg class="stack-col-svg" viewBox="0 0 52 ${H}" width="52" height="${H}" aria-hidden="true">
-              <line x1="8" y1="${padT}" x2="8" y2="${padT + plotH}" stroke="rgba(158,182,209,0.2)" stroke-width="1"/>
-              <line x1="8" y1="${padT + plotH}" x2="44" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
+              <line x1="10" y1="${padT + plotH}" x2="42" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
               ${bars}
               ${labels}
             </svg>
@@ -494,20 +538,23 @@
       })
       .join("");
 
-    // Shared Y scale (left)
     const yTicks = [0, 100, 200, 300]
       .map((y) => {
         const gy = padT + plotH - (y / yMax) * plotH;
-        return `<text x="34" y="${gy + 4}" text-anchor="end" fill="#9eb6d1" font-size="11" font-family="urw-din, Barlow Condensed, sans-serif">${y}</text>
-          <line x1="38" y1="${gy}" x2="48" y2="${gy}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>`;
+        return `<text x="34" y="${gy + 4}" text-anchor="end" fill="#9eb6d1" font-size="10" font-family="urw-din, Barlow Condensed, sans-serif">${y}</text>
+          <line x1="38" y1="${gy}" x2="48" y2="${gy}" stroke="rgba(158,182,209,0.28)" stroke-width="1"/>`;
       })
       .join("");
 
     return `
       <div class="stack-chart">
-        <div class="stack-legend">${legend}<span class="stack-legend-note">R1 bottom → R3 top · pass %</span></div>
+        <div class="stack-legend">${legend}<span class="stack-legend-note">Latest % above · R1→R3 stack</span></div>
         <div class="stack-plot">
-          <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
+          <div class="stack-yaxis-wrap">
+            <div class="stack-headline stack-headline-spacer" aria-hidden="true">&nbsp;</div>
+            <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
+            <div class="stack-logo-cell stack-logo-spacer" aria-hidden="true"></div>
+          </div>
           <div class="stack-cols">${cols}</div>
         </div>
       </div>
@@ -648,7 +695,7 @@
     els.chartsByPlatform.innerHTML = cards.join("");
   }
 
-    function runners() {
+  function runners() {
     return data.runners || [];
   }
 
@@ -668,13 +715,14 @@
       const st = runner.status || "offline";
       const pct =
         runner.lastPassRatePct != null ? `${runner.lastPassRatePct}%` : "—";
+      const label = runnerDisplayName(runner);
       return `
-        <article class="runner-card status-${escapeHtml(st)}" title="${escapeHtml(runner.name)}">
+        <article class="runner-card status-${escapeHtml(st)}" title="${escapeHtml(runner.name || label)}">
           <div class="runner-card-top">
             ${logoHtml(runner.platform)}
             <span class="runner-status"><i></i>${escapeHtml(runnerStatusLabel(st))}</span>
           </div>
-          <p class="runner-name">${escapeHtml(runner.name)}</p>
+          <p class="runner-name">${escapeHtml(label)}</p>
           <p class="runner-meta">${logoHtml(runner.product, "product-logo-sm")}</p>
           <div class="runner-stats">
             <span>${escapeHtml(runner.os || "—")}</span>
@@ -698,11 +746,12 @@
   function renderProducts() {
     els.productTiles.innerHTML = "";
     products().forEach((prod, idx) => {
+      const worst = productWorstStatus(prod.id);
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = `tile tile-product tile-logo-only product-${prod.id} anim-in`;
+      btn.className = `tile tile-product tile-logo-only product-${prod.id} ${worst} anim-in`;
       btn.style.setProperty("--delay", `${idx * 120}ms`);
-      btn.setAttribute("aria-label", prod.label);
+      btn.setAttribute("aria-label", `${prod.label} · ${worst.replace("status-", "")}`);
       btn.innerHTML = `
         <div class="tile-brand tile-brand-solo">${logoHtml(prod.id, "product-logo-lg")}</div>
       `;

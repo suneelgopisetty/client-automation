@@ -1211,7 +1211,7 @@
     },
     {
       "id": "iphone-5",
-      "name": "Rahul Rathod's iPad",
+      "name": "iPad-Lab-05",
       "platform": "iphone",
       "product": "foxone",
       "type": "self-host",
@@ -1220,7 +1220,8 @@
       "appVersion": "v1.30.0 # 20260922.2",
       "lastSeenAt": "2026-09-24T07:52:21Z",
       "lastRunId": "35963317927",
-      "lastPassRatePct": 80.0
+      "lastPassRatePct": 80.0,
+      "assetTag": "iPad-Lab-05"
     },
     {
       "id": "android-6",

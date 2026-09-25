@@ -1,4 +1,4 @@
-# Client Automation 
+# Client Automation
 
 **Live URL (public — no GitHub login):**  
 https://suneelgopisetty.github.io/client-automation/
