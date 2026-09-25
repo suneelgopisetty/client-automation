@@ -1,7 +1,7 @@
-# Client Automation (exec portal)
+# Client Automation 
 
 **Live URL (public — no GitHub login):**  
-https://suneelgopisetty.github.io/client-automation-portal/
+https://suneelgopisetty.github.io/client-automation/
 
 **Target corp URL (when DNS is ready):**  
 https://client-automation.fox.com
