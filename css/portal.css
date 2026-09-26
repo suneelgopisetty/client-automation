@@ -787,13 +787,13 @@ main {
   flex-direction: column;
   align-items: center;
   flex: 1 1 0;
-  min-width: 64px;
-  max-width: 96px;
+  min-width: 78px;
+  max-width: 110px;
 }
 
 .stack-col-svg {
   display: block;
-  width: 52px;
+  width: 78px;
   height: 240px;
   overflow: visible;
 }

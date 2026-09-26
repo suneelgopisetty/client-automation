@@ -417,15 +417,19 @@
   }
 
   function shortVer(run, index) {
-    if (!run) return "";
-    let ver = releaseLabel(run, index);
-    if (/^R\d$/.test(ver)) return ver;
-    ver = ver.replace(/^v/i, "");
+    if (!run) return `R${index + 1}`;
+    let ver = (run.releaseVersion || "").trim();
+    if (!ver || /^latest$/i.test(ver)) {
+      ver = (run.appVersion || "").split("#")[0].trim();
+      ver = ver.replace(/^v/i, "").split(" ")[0] || "";
+    } else {
+      ver = ver.replace(/^v/i, "");
+    }
+    if (!ver || /^latest$/i.test(ver) || /^R\d$/.test(ver)) return `R${index + 1}`;
     if (/^momentic/i.test(ver)) {
       const m = ver.match(/(\d+)/);
       return m ? `m${m[1]}` : `R${index + 1}`;
     }
-    // Prefer short version like 1.21 / 1.18.2 for on-bar labels
     if (ver.length > 8) return ver.slice(0, 7);
     return ver;
   }
@@ -466,7 +470,7 @@
     return n;
   }
 
-  /** One stacked bar per platform: % + version on the bar segments (R1→R3) */
+  /** One stacked bar per platform: % + version on/ beside every segment */
   function clientPlatformReleaseGraphSvg(productId) {
     const plats = platformsForProduct(productId);
     const colors = releaseColors();
@@ -475,6 +479,9 @@
     const padT = 10;
     const padB = 4;
     const plotH = H - padT - padB;
+    const barX = 6;
+    const barW = 28;
+    const svgW = 78; // room for outside labels on short segments
 
     const legend = colors
       .map(
@@ -498,29 +505,36 @@
           if (!run) continue;
           const pct = Math.max(0, Math.min(100, runPct(run)));
           if (pct <= 0) continue;
-          const h = Math.max((pct / yMax) * plotH, 6);
+          const h = Math.max((pct / yMax) * plotH, 5);
           const y = yCursor - h;
-          const ver = shortVer(run, i);
+          const ver = shortVer(run, i) || `R${i + 1}`;
           const fullVer = releaseLabel(run, i);
           const date = shortDate(run.completedAt);
           const pctText = `${Math.round(pct)}%`;
           tipParts.push(`R${i + 1}: ${pctText} · ${fullVer} · ${date}`);
-          bars += `<rect x="8" y="${y}" width="36" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date}</title></rect>`;
+          bars += `<rect x="${barX}" y="${y}" width="${barW}" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date}</title></rect>`;
 
-          // % + version on the bar only (when there is room)
-          if (h >= 34 && ver && !/^R\d$/.test(ver)) {
-            labels += `<text x="26" y="${y + h / 2 - 2}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text x="26" y="${y + h / 2 + 11}" text-anchor="middle" fill="rgba(248,250,252,0.88)" font-size="8" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
-          } else if (h >= 18) {
-            labels += `<text x="26" y="${y + h / 2 + 3.5}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+          const midY = y + h / 2;
+          if (h >= 36) {
+            // Tall: % + version inside the segment
+            labels += `<text x="${barX + barW / 2}" y="${midY - 2}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text x="${barX + barW / 2}" y="${midY + 11}" text-anchor="middle" fill="rgba(248,250,252,0.9)" font-size="8" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+          } else if (h >= 20) {
+            // Medium: % inside, version to the right
+            labels += `<text x="${barX + barW / 2}" y="${midY + 3.5}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text x="${barX + barW + 4}" y="${midY + 3.5}" text-anchor="start" fill="#e2e8f0" font-size="9" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+          } else {
+            // Short: % + version to the right of the segment (always visible)
+            labels += `<text x="${barX + barW + 4}" y="${midY + 3.5}" text-anchor="start" fill="#f8fafc" font-size="9" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text x="${barX + barW + 4}" y="${midY + 13}" text-anchor="start" fill="#94a3b8" font-size="8" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
           }
           yCursor = y;
         }
 
         return `
           <div class="stack-col" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">
-            <svg class="stack-col-svg" viewBox="0 0 52 ${H}" width="52" height="${H}" aria-hidden="true">
-              <line x1="8" y1="${padT + plotH}" x2="44" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
+            <svg class="stack-col-svg" viewBox="0 0 ${svgW} ${H}" width="${svgW}" height="${H}" aria-hidden="true">
+              <line x1="${barX}" y1="${padT + plotH}" x2="${barX + barW}" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
               ${bars}
               ${labels}
             </svg>
@@ -540,7 +554,7 @@
 
     return `
       <div class="stack-chart">
-        <div class="stack-legend">${legend}<span class="stack-legend-note">R1 bottom → R3 top · % + version on bar</span></div>
+        <div class="stack-legend">${legend}<span class="stack-legend-note">R1→R3 · short bars label to the right</span></div>
         <div class="stack-plot">
           <div class="stack-yaxis-wrap">
             <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
