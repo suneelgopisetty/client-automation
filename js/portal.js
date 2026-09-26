@@ -421,9 +421,12 @@
     let ver = releaseLabel(run, index);
     if (/^R\d$/.test(ver)) return ver;
     ver = ver.replace(/^v/i, "");
-    // Keep bar labels short — full version lives in the tooltip
-    if (/^momentic/i.test(ver)) return `R${index + 1}`;
-    if (ver.length > 7) return ver.slice(0, 6);
+    if (/^momentic/i.test(ver)) {
+      const m = ver.match(/(\d+)/);
+      return m ? `m${m[1]}` : `R${index + 1}`;
+    }
+    // Prefer short version like 1.21 / 1.18.2 for on-bar labels
+    if (ver.length > 8) return ver.slice(0, 7);
     return ver;
   }
 
@@ -463,13 +466,13 @@
     return n;
   }
 
-  /** One stacked bar per platform: latest % headline + R1→R3 stack detail */
+  /** One stacked bar per platform: % + version on the bar segments (R1→R3) */
   function clientPlatformReleaseGraphSvg(productId) {
     const plats = platformsForProduct(productId);
     const colors = releaseColors();
     const yMax = 300;
-    const H = 220;
-    const padT = 8;
+    const H = 240;
+    const padT = 10;
     const padB = 4;
     const plotH = H - padT - padB;
 
@@ -484,16 +487,6 @@
       .map((plat) => {
         const newestFirst = recentRuns(runsFor(productId, plat.id), 3);
         const runs = newestFirst.slice().reverse(); // R1→R3
-        const latest = newestFirst[0] || null;
-        const latestPct = latest != null ? Math.round(runPct(latest)) : null;
-        const latestTone =
-          latest == null
-            ? "tone-none"
-            : statusClass(latest) === "status-fail"
-              ? "tone-fail"
-              : statusClass(latest) === "status-warn"
-                ? "tone-warn"
-                : "tone-pass";
 
         let yCursor = padT + plotH;
         let bars = "";
@@ -510,25 +503,24 @@
           const ver = shortVer(run, i);
           const fullVer = releaseLabel(run, i);
           const date = shortDate(run.completedAt);
-          tipParts.push(`R${i + 1}: ${Math.round(pct)}% · ${fullVer} · ${date}`);
-          bars += `<rect x="10" y="${y}" width="32" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${Math.round(pct)}% · ${date}</title></rect>`;
-          // Percent only inside tall segments — no version text (avoids clip)
-          if (h >= 18) {
-            labels += `<text x="26" y="${y + h / 2 + 4}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${Math.round(pct)}</text>`;
+          const pctText = `${Math.round(pct)}%`;
+          tipParts.push(`R${i + 1}: ${pctText} · ${fullVer} · ${date}`);
+          bars += `<rect x="8" y="${y}" width="36" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date}</title></rect>`;
+
+          // % + version on the bar only (when there is room)
+          if (h >= 34 && ver && !/^R\d$/.test(ver)) {
+            labels += `<text x="26" y="${y + h / 2 - 2}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text x="26" y="${y + h / 2 + 11}" text-anchor="middle" fill="rgba(248,250,252,0.88)" font-size="8" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+          } else if (h >= 18) {
+            labels += `<text x="26" y="${y + h / 2 + 3.5}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
           }
           yCursor = y;
         }
 
-        const headline =
-          latestPct == null
-            ? `<div class="stack-headline tone-none">—</div>`
-            : `<div class="stack-headline ${latestTone}" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">${latestPct}<span class="stack-headline-unit">%</span></div>`;
-
         return `
           <div class="stack-col" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">
-            ${headline}
             <svg class="stack-col-svg" viewBox="0 0 52 ${H}" width="52" height="${H}" aria-hidden="true">
-              <line x1="10" y1="${padT + plotH}" x2="42" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
+              <line x1="8" y1="${padT + plotH}" x2="44" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
               ${bars}
               ${labels}
             </svg>
@@ -548,10 +540,9 @@
 
     return `
       <div class="stack-chart">
-        <div class="stack-legend">${legend}<span class="stack-legend-note">Latest % above · R1→R3 stack</span></div>
+        <div class="stack-legend">${legend}<span class="stack-legend-note">R1 bottom → R3 top · % + version on bar</span></div>
         <div class="stack-plot">
           <div class="stack-yaxis-wrap">
-            <div class="stack-headline stack-headline-spacer" aria-hidden="true">&nbsp;</div>
             <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
             <div class="stack-logo-cell stack-logo-spacer" aria-hidden="true"></div>
           </div>
