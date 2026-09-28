@@ -136,20 +136,29 @@
     return (meta.platform && meta.platform.label) || id;
   }
 
-  function logoHtml(id, extraClass) {
+  function logoHtml(id, extraClass, opts) {
     const GROUP_TEXT = { lr: "LR", tvapps: "TV", mobile: "MB", web: "WEB" };
     const isProduct = !!PRODUCT_LOGOS[id];
-    const src = PRODUCT_LOGOS[id] || PLATFORM_LOGOS[id];
+    const localFb = PRODUCT_LOGO_FALLBACK[id] || PLATFORM_LOGO_FALLBACK[id] || "";
+    const altCdn = PLATFORM_LOGO_ALT[id] || "";
+    const preferLocal = opts && opts.localFirst;
+    const src = preferLocal
+      ? localFb || PRODUCT_LOGOS[id] || PLATFORM_LOGOS[id] || altCdn
+      : PRODUCT_LOGOS[id] || PLATFORM_LOGOS[id] || localFb;
     if (!src) {
       const text = GROUP_TEXT[id] || String(id).slice(0, 3).toUpperCase();
       return `<span class="logo logo-${escapeHtml(id)} ${extraClass || ""}" aria-hidden="true">${escapeHtml(text)}</span>`;
     }
 
-    const localFb = PRODUCT_LOGO_FALLBACK[id] || PLATFORM_LOGO_FALLBACK[id] || "";
-    const altCdn = PLATFORM_LOGO_ALT[id] || "";
-    // Chain: primary CDN → alt CDN → local asset
+    // Chain fallbacks so graph logos always resolve
     let onerr = "";
-    if (altCdn && localFb) {
+    if (preferLocal) {
+      if (altCdn && PLATFORM_LOGOS[id]) {
+        onerr = ` onerror="this.onerror=function(){this.onerror=null;this.src='${PLATFORM_LOGOS[id]}'};this.src='${altCdn}'"`;
+      } else if (altCdn) {
+        onerr = ` onerror="this.onerror=null;this.src='${altCdn}'"`;
+      }
+    } else if (altCdn && localFb) {
       onerr = ` onerror="this.onerror=function(){this.onerror=null;this.src='${localFb}'};this.src='${altCdn}'"`;
     } else if (localFb) {
       onerr = ` onerror="this.onerror=null;this.src='${localFb}'"`;
@@ -165,6 +174,7 @@
   let selectedProduct = null;
   let selectedPlatform = null;
   let selectedGroupId = null;
+  let openedDetailFromChart = false;
 
   const els = {
     updated: document.getElementById("data-updated"),
@@ -491,17 +501,20 @@
     return String(runner.owner || runner.deviceOwner || runner.ownerName || "").trim();
   }
 
-  function openRunResults(run) {
+  /** Open the in-portal run detail page (same as attached screenshot). */
+  function openRunDetailFromChart(runId) {
+    const run = (data.runs || []).find((r) => String(r.id) === String(runId));
     if (!run) return;
-    const url = run.reportUrl || (run.links || []).find((l) => l && l.url)?.url;
-    if (url) {
-      window.open(url, "_blank", "noopener,noreferrer");
-      return;
-    }
+    selectedProduct = run.product || null;
+    selectedPlatform = run.platform || null;
+    const meta = platformMeta(run.platform);
+    selectedGroupId = meta.group ? meta.group.id : null;
+    openedDetailFromChart = true;
+    if (els.backPlatform) els.backPlatform.textContent = "← Back to home";
     openDetail(run.id);
   }
 
-  /** One stacked bar per platform: % + version on/ beside every segment */
+  /** One stacked bar per platform — bar centered over platform logo */
   function clientPlatformReleaseGraphSvg(productId) {
     const plats = platformsForProduct(productId);
     const colors = releaseColors();
@@ -510,9 +523,10 @@
     const padT = 10;
     const padB = 4;
     const plotH = H - padT - padB;
-    const barX = 6;
-    const barW = 34;
-    const svgW = 96; // room for outside labels on short segments
+    const svgW = 88;
+    const barW = 46;
+    const barX = (svgW - barW) / 2; // center bar in column
+    const cx = svgW / 2;
 
     const legend = colors
       .map(
@@ -537,47 +551,43 @@
           if (!run) continue;
           const pct = Math.max(0, Math.min(100, runPct(run)));
           if (pct <= 0) continue;
-          const h = Math.max((pct / yMax) * plotH, 5);
+          const h = Math.max((pct / yMax) * plotH, 8);
           const y = yCursor - h;
           const ver = shortVer(run, i) || `R${i + 1}`;
           const fullVer = releaseLabel(run, i);
           const date = shortDate(run.completedAt);
           const pctText = `${Math.round(pct)}%`;
-          const reportUrl = run.reportUrl || "";
           tipParts.push(`R${i + 1}: ${pctText} · ${fullVer} · ${date}`);
-          bars += `<rect class="stack-seg" data-run-id="${escapeHtml(String(run.id))}" data-report-url="${escapeHtml(reportUrl)}" tabindex="0" role="link" aria-label="${escapeHtml(plat.label)} R${i + 1} ${pctText} open results" x="${barX}" y="${y}" width="${barW}" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date} · click for results</title></rect>`;
+          bars += `<rect class="stack-seg" data-run-id="${escapeHtml(String(run.id))}" tabindex="0" role="link" aria-label="${escapeHtml(plat.label)} R${i + 1} ${pctText} open run detail" x="${barX}" y="${y}" width="${barW}" height="${h}" rx="4" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date}</title></rect>`;
 
           const midY = y + h / 2;
-          if (h >= 40) {
-            // Tall: % + version inside the segment
-            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW / 2}" y="${midY - 3}" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW / 2}" y="${midY + 13}" text-anchor="middle" fill="rgba(248,250,252,0.92)" font-size="11" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
-          } else if (h >= 22) {
-            // Medium: % inside, version to the right
-            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW / 2}" y="${midY + 4}" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW + 4}" y="${midY + 4}" text-anchor="start" fill="#e2e8f0" font-size="12" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+          // Keep all labels inside the centered bar so logo stays aligned under the stack
+          if (h >= 38) {
+            labels += `<text class="stack-label" pointer-events="none" x="${cx}" y="${midY - 2}" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${cx}" y="${midY + 13}" text-anchor="middle" fill="rgba(248,250,252,0.92)" font-size="11" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+          } else if (h >= 18) {
+            labels += `<text class="stack-label" pointer-events="none" x="${cx}" y="${midY + 4}" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
           } else {
-            // Short: % + version to the right of the segment (always visible)
-            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW + 4}" y="${midY + 3}" text-anchor="start" fill="#f8fafc" font-size="12" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW + 4}" y="${midY + 16}" text-anchor="start" fill="#cbd5e1" font-size="11" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${cx}" y="${midY + 3.5}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${Math.round(pct)}</text>`;
           }
           yCursor = y;
         }
 
         const latestAttrs = latest
-          ? `data-run-id="${escapeHtml(String(latest.id))}" data-report-url="${escapeHtml(latest.reportUrl || "")}"`
-          : "";
+          ? `data-run-id="${escapeHtml(String(latest.id))}"`
+          : "disabled";
 
         return `
-          <div class="stack-col" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">
-            <svg class="stack-col-svg" viewBox="0 0 ${svgW} ${H}" width="${svgW}" height="${H}" aria-hidden="false">
+          <div class="stack-col" data-platform="${escapeHtml(plat.id)}" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">
+            <svg class="stack-col-svg" viewBox="0 0 ${svgW} ${H}" width="${svgW}" height="${H}" preserveAspectRatio="xMidYMax meet">
               <line x1="${barX}" y1="${padT + plotH}" x2="${barX + barW}" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
               ${bars}
               ${labels}
             </svg>
             <div class="stack-logo-cell">
-              <button type="button" class="stack-logo-btn" ${latestAttrs} aria-label="${escapeHtml(plat.label)} — open latest results">
-                ${logoHtml(plat.id)}
+              <button type="button" class="stack-logo-btn" ${latestAttrs} aria-label="${escapeHtml(plat.label)} — open latest run">
+                ${logoHtml(plat.id, "", { localFirst: true })}
+                <span class="stack-plat-label">${escapeHtml(plat.label)}</span>
               </button>
             </div>
           </div>
@@ -595,7 +605,7 @@
 
     return `
       <div class="stack-chart">
-        <div class="stack-legend">${legend}<span class="stack-legend-note">R1→R3 · click a bar for results</span></div>
+        <div class="stack-legend">${legend}<span class="stack-legend-note">R1→R3 · click a bar for run detail</span></div>
         <div class="stack-plot">
           <div class="stack-yaxis-wrap">
             <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
@@ -750,14 +760,7 @@
       if (!target) return;
       const runId = target.getAttribute("data-run-id");
       if (!runId) return;
-      const reportUrl = target.getAttribute("data-report-url") || "";
-      const run = (data.runs || []).find((r) => String(r.id) === String(runId));
-      if (reportUrl) {
-        window.open(reportUrl, "_blank", "noopener,noreferrer");
-        return;
-      }
-      if (run) openRunResults(run);
-      else openDetail(runId);
+      openRunDetailFromChart(runId);
     }
 
     els.chartsByClient.addEventListener("click", (e) => {
@@ -965,6 +968,7 @@
       `;
       btn.addEventListener("click", (e) => {
         if (e.target.closest("[data-report-link]")) return;
+        openedDetailFromChart = false;
         openDetail(run.id);
       });
       els.runList.appendChild(btn);
@@ -975,6 +979,9 @@
   function openDetail(runId) {
     const run = (data.runs || []).find((r) => String(r.id) === String(runId));
     if (!run) return;
+    if (!openedDetailFromChart && els.backPlatform) {
+      els.backPlatform.textContent = "← Back to runs";
+    }
 
     const pct = run.passRatePct != null ? run.passRatePct : calcPct(run);
     const status = statusClass(run);
@@ -1059,6 +1066,12 @@
   });
 
   els.backPlatform.addEventListener("click", () => {
+    if (openedDetailFromChart) {
+      openedDetailFromChart = false;
+      if (els.backPlatform) els.backPlatform.textContent = "← Back to runs";
+      goHome();
+      return;
+    }
     if (selectedProduct && selectedPlatform) {
       renderRunList();
       showView("platform");
