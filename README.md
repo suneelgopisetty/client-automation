@@ -27,6 +27,8 @@ Static dashboard from the Client SDET team for FOX One · FOX Sports · FOX Weat
 
 ## Slack sources (always use these for data)
 
+**Required every sync** (also in `js/slack-sources.js` + `SYNC_FROM_SLACK.md`):
+
 | Product / area | Slack channel |
 |----------------|---------------|
 | FOX One · LR (Roku / FireTV) | `#client-lr-automation-stats` |
@@ -37,6 +39,8 @@ Static dashboard from the Client SDET team for FOX One · FOX Sports · FOX Weat
 | FOX Sports · Mobile | `#fsapp-automation-test` |
 | FOX Sports · Web | `#fscom-automation-test` |
 | FOX Weather · Mobile | `#fw-automation-test` |
+
+See [SYNC_FROM_SLACK.md](./SYNC_FROM_SLACK.md) for channel IDs and refresh steps.
 
 ## Open locally
 

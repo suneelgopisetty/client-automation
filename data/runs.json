@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28T10:10:43Z",
+  "updatedAt": "2026-09-28T10:16:39Z",
   "products": [
     {
       "id": "foxone",
@@ -111,6 +111,41 @@
       "slackChannel": "#fw-automation-test"
     },
     {
+      "id": "14f8053e7e32",
+      "product": "foxone",
+      "platform": "lg",
+      "completedAt": "2026-09-28T08:39:20Z",
+      "conclusion": "success",
+      "device": "LG TV",
+      "sourceDetail": "RC \u00b7 latest",
+      "appVersion": "latest",
+      "durationSec": 489,
+      "passed": 11,
+      "failed": 0,
+      "total": 11,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Passed",
+        "Search Feature \u2014 Passed",
+        "Side Navigation Feature \u2014 Passed",
+        "Live Playback Feature \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/reports/local-lg/2026-09-28T08-38-38-125Z/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/reports/local-lg/2026-09-28T08-38-38-125Z/",
+          "kind": "html"
+        }
+      ],
+      "releaseVersion": "latest",
+      "slackChannel": "#client-tvapps-qaautomation-stats"
+    },
+    {
       "id": "36391250606",
       "product": "foxweather",
       "platform": "iphone",
@@ -144,6 +179,41 @@
       ],
       "releaseVersion": "v3.13.0",
       "slackChannel": "#client-automation-experiment"
+    },
+    {
+      "id": "07601f98ff85",
+      "product": "foxone",
+      "platform": "samsung",
+      "completedAt": "2026-09-28T07:27:44Z",
+      "conclusion": "success",
+      "device": "Samsung TV",
+      "sourceDetail": "RC \u00b7 latest",
+      "appVersion": "latest",
+      "durationSec": 1190,
+      "passed": 11,
+      "failed": 0,
+      "total": 11,
+      "passRatePct": 100.0,
+      "executionSummary": [
+        "Sign In Feature \u2014 Passed",
+        "Settings Feature \u2014 Passed",
+        "VOD Playback Feature \u2014 Passed",
+        "Search Feature \u2014 Passed",
+        "Side Navigation Feature \u2014 Passed",
+        "Live Playback Feature \u2014 Passed"
+      ],
+      "failures": [],
+      "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/reports/local-tizen/2026-09-28T07-26-55-576Z/",
+      "reportLabel": "View HTML Report",
+      "links": [
+        {
+          "label": "View HTML Report",
+          "url": "https://verbose-adventure-nyr2e35.pages.github.io/reports/local-tizen/2026-09-28T07-26-55-576Z/",
+          "kind": "html"
+        }
+      ],
+      "releaseVersion": "latest",
+      "slackChannel": "#client-tvapps-qaautomation-stats"
     },
     {
       "id": "36149907311",
@@ -1370,15 +1440,44 @@
     }
   ],
   "slackChannels": {
-    "foxone_lr": "#client-lr-automation-stats",
-    "foxone_tvapps": "#client-tvapps-qaautomation-stats",
-    "foxone_mobile": "#client-mobile-automation-stats",
-    "foxone_appletv": "#client-tvos-automation-stats",
-    "foxsports_mobile": "#fsapp-automation-test",
-    "foxweather_mobile": "#fw-automation-test",
-    "foxone_web": "#foxone_web_alerts",
-    "foxsports_web": "#fscom-automation-test",
-    "client_automation_experiment": "#client-automation-experiment"
+    "foxone_lr": {
+      "name": "#client-lr-automation-stats",
+      "id": "C0BL2TSJQJU"
+    },
+    "foxone_appletv": {
+      "name": "#client-tvos-automation-stats",
+      "id": "C0C17FDE5C4"
+    },
+    "foxone_tvapps": {
+      "name": "#client-tvapps-qaautomation-stats",
+      "id": "C0A0GUX2KKJ"
+    },
+    "foxone_mobile": {
+      "name": "#client-mobile-automation-stats",
+      "id": "C0BD8H7AXV3"
+    },
+    "foxone_web": {
+      "name": "#foxone_web_alerts",
+      "id": "C0986VDQV4Z",
+      "note": "Ops/Conviva alerts \u2014 may not post E2E runs"
+    },
+    "foxsports_mobile": {
+      "name": "#fsapp-automation-test",
+      "id": "C0BMMT4BPD1"
+    },
+    "foxsports_web": {
+      "name": "#fscom-automation-test",
+      "id": "C0BGFTYG8QN"
+    },
+    "foxweather_mobile": {
+      "name": "#fw-automation-test",
+      "id": "C0BK8QKSVSN"
+    },
+    "client_automation_experiment": {
+      "name": "#client-automation-experiment",
+      "id": "C0BTQ25TJUW",
+      "optional": true
+    }
   },
   "runners": [
     {

@@ -4,6 +4,21 @@
  */
 
 (function () {
+  /**
+   * Required Slack sources — always keep these channels in sync jobs / docs.
+   * Channel IDs are stored in data/runs.json → slackChannels as well.
+   */
+  const REQUIRED_SLACK_CHANNELS = [
+    "#client-lr-automation-stats",
+    "#client-tvos-automation-stats",
+    "#client-tvapps-qaautomation-stats",
+    "#client-mobile-automation-stats",
+    "#foxone_web_alerts",
+    "#fsapp-automation-test",
+    "#fscom-automation-test",
+    "#fw-automation-test",
+  ];
+
   const params = new URLSearchParams(location.search);
   const isEmbed =
     params.get("embed") === "1" ||

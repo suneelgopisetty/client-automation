@@ -1,33 +1,34 @@
-# Why the dashboard can look “stale”
+# Sync Client Automation data from Slack
 
-This portal is a **static site**. The browser only loads `data/runs.json`.  
-It does **not** call Slack live when you open the page.
+The dashboard is static (`data/runs.json`). It does **not** call Slack in the browser.  
+Every sync must include **all** required channels below (never drop the ones you listed).
 
-## Slack sources
+## Required Slack channels (always)
 
-| Area | Channel |
-|------|---------|
-| FOX One LR | `#client-lr-automation-stats` |
-| FOX One Apple TV | `#client-tvos-automation-stats` |
-| FOX One TV Apps | `#client-tvapps-qaautomation-stats` |
-| FOX One Mobile | `#client-mobile-automation-stats` |
-| FOX One Web | `#foxone_web_alerts` |
-| FOX Sports Mobile | `#fsapp-automation-test` |
-| FOX Sports Web | `#fscom-automation-test` |
-| FOX Weather Mobile | `#fw-automation-test` |
-| Cross-product experiment | `#client-automation-experiment` |
+| Key | Channel | Slack ID | Product / platforms |
+|-----|---------|----------|---------------------|
+| `foxone_lr` | `#client-lr-automation-stats` | `C0BL2TSJQJU` | FOX One · Roku / FireTV |
+| `foxone_appletv` | `#client-tvos-automation-stats` | `C0C17FDE5C4` | FOX One · Apple TV |
+| `foxone_tvapps` | `#client-tvapps-qaautomation-stats` | `C0A0GUX2KKJ` | FOX One · Samsung / LG / VIZIO |
+| `foxone_mobile` | `#client-mobile-automation-stats` | `C0BD8H7AXV3` | FOX One · iPhone / Android |
+| `foxone_web` | `#foxone_web_alerts` | `C0986VDQV4Z` | FOX One · Web *(often Conviva/ops alerts, not E2E)* |
+| `foxsports_mobile` | `#fsapp-automation-test` | `C0BMMT4BPD1` | FOX Sports · Mobile |
+| `foxsports_web` | `#fscom-automation-test` | `C0BGFTYG8QN` | FOX Sports · Web |
+| `foxweather_mobile` | `#fw-automation-test` | `C0BK8QKSVSN` | FOX Weather · Mobile |
 
-## How to refresh data
+Optional: `#client-automation-experiment` (`C0BTQ25TJUW`).
 
-1. Pull latest bot posts from the channels above (Cursor Slack tools or Slack UI).
-2. Append new runs into `data/runs.json` (unique `id` per report URL / run id).
-3. Set `updatedAt` to now (UTC).
-4. Redeploy:
-   - GitHub Pages: push `public/automation-status/`
-   - Product Ops: re-upload `dist/Client_SDET_Automation_Status.html` (rebuild after data change)
+Canonical list also lives in:
 
-## Note on “no new data”
+- `js/slack-sources.js`
+- `js/portal.js` → `REQUIRED_SLACK_CHANNELS`
+- `data/runs.json` → `slackChannels`
 
-If Slack channels have had **no new automation posts** since the last sync  
-(e.g. FOX One LR last bot post ~24 Sep), the dashboard correctly stays on that data  
-until a new run is posted.
+## Refresh steps
+
+1. Read latest bot posts from **every** required channel above.
+2. Append new runs to `data/runs.json` (unique `id`).
+3. Set `updatedAt` (UTC now).
+4. Redeploy GitHub Pages and/or rebuild Product Ops single-file bundle under `dist/`.
+
+In Cursor: ask to **“sync automation status from Slack”** — that should cover all channels in this table.
