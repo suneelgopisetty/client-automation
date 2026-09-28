@@ -88,7 +88,7 @@
 
   const PRODUCT_LOGO_FALLBACK = {
     foxone: "assets/fox-one-logo.svg",
-    foxsports: "assets/fox-sports-logo.png",
+    foxsports: "assets/fox-sports-logo.svg",
     foxweather: "assets/fox-weather-logo.png",
   };
 
@@ -165,9 +165,9 @@
     }
 
     const cls = isProduct
-      ? `product-logo ${extraClass || ""}`
-      : `platform-logo ${extraClass || ""}`;
-    return `<img class="${cls}" src="${src}" alt="${escapeHtml(logoAlt(id))}"${onerr} />`;
+      ? `product-logo product-logo-${escapeHtml(id)} ${extraClass || ""}`
+      : `platform-logo platform-logo-${escapeHtml(id)} ${extraClass || ""}`;
+    return `<img class="${cls}" data-brand="${escapeHtml(id)}" src="${src}" alt="${escapeHtml(logoAlt(id))}"${onerr} />`;
   }
 
   let data = null;

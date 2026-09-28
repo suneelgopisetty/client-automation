@@ -1158,16 +1158,35 @@ img.product-logo-sm[src*="fox-weather-logo"] {
   max-width: 2.1rem;
 }
 
-/* FOX Sports oval badge */
+/* FOX Sports — stacked FOX / SPORTS wordmark (new) */
+img.product-logo.product-logo-foxsports,
+img.product-logo[data-brand="foxsports"],
 img.product-logo[src*="fox-sports-logo"] {
-  height: 3.2rem;
-  max-width: 200px;
+  height: 4.4rem;
+  max-width: 220px;
   width: auto;
+  object-fit: contain;
+  background: transparent;
+  padding: 0;
 }
 
+img.product-logo-sm.product-logo-foxsports,
+img.product-logo-sm[data-brand="foxsports"],
 img.product-logo-sm[src*="fox-sports-logo"] {
-  height: 2rem;
-  max-width: 120px;
+  height: 2.6rem;
+  max-width: 140px;
+}
+
+.tile-logo-only .product-logo-foxsports,
+.tile-logo-only img[data-brand="foxsports"] {
+  height: 5rem;
+  max-width: 240px;
+}
+
+.chart-card-head img[data-brand="foxsports"],
+.chart-card-head .product-logo-foxsports {
+  height: 2.4rem;
+  max-width: 130px;
 }
 
 .platform-logo {

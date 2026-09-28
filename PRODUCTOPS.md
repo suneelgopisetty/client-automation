@@ -4,6 +4,46 @@
 [Product Ops → Bugs / QA](https://productops.fox/?category=bugs-qa)  
 so execs and QA open one Okta-gated portal instead of a separate GitHub Pages URL.
 
+## Product Ops File Manager (important)
+
+The File Manager upload is **one file**. Uploading only `index.html` breaks the site
+(unstyled white page, “Loading…”, broken logos) because these are also required:
+
+- `css/portal.css`
+- `js/portal.js`
+- `data/runs.json`
+- `assets/*` (logos)
+
+### Recommended: upload the single-file bundle
+
+Use this file (CSS + JS + data + logos already inlined):
+
+`public/automation-status/dist/Client_SDET_Automation_Status.html`
+
+1. Product Ops → **+ Publish a File**
+2. Destination: Existing folder (e.g. `TestResults`) · Category: **Bugs & QA**
+3. Upload **`Client_SDET_Automation_Status.html`** (not bare `index.html`)
+4. Name the page: **Client SDET Automation Status**
+5. Publish → wait ~30s → open from Bugs & QA
+
+Rebuild the bundle after any portal change:
+
+```bash
+python3 - <<'PY'
+# re-run the bundler from the project, or ask Cursor to rebuild dist/
+print('Ask agent: rebuild Product Ops single-file bundle')
+PY
+```
+
+### Alternative: link out to the live multi-file site
+
+If Product Ops supports a URL/link card instead of HTML upload, point to:
+
+https://suneelgopisetty.github.io/client-automation/
+
+Full folder zip (only if the host extracts folders):  
+`public/automation-status/dist/client-automation-full.zip`
+
 **Owner (content):** Client SDET  
 **Owner (shell):** Product Ops / platform team for `productops.fox`
 
