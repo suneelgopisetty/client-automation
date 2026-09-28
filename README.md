@@ -6,6 +6,10 @@ https://suneelgopisetty.github.io/client-automation/
 **Target corp URL (when DNS is ready):**  
 https://client-automation.fox.com
 
+**Product Ops (Bugs / QA):** integrate this app under  
+https://productops.fox/?category=bugs-qa — see [PRODUCTOPS.md](./PRODUCTOPS.md).  
+Embed preview: append `?embed=1` (compact chrome for iframe / in-portal pane).
+
 Static dashboard from the Client SDET team for FOX One · FOX Sports · FOX Weather automation status.
 
 ## Hierarchy

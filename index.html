@@ -3,14 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FOX Client Automation status — FOX One, Sports, Weather. Embeddable in Product Ops Bugs/QA." />
   <title>Client Automation · FOX</title>
+  <script>
+    /* Product Ops / iframe embed: ?embed=1 or nested frame */
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search);
+        var embed = q.get("embed") === "1" || q.get("productops") === "1" || window.self !== window.top;
+        if (embed) document.documentElement.classList.add("embed");
+      } catch (e) {
+        document.documentElement.classList.add("embed");
+      }
+    })();
+  </script>
   <!-- Same Typekit kit as foxcorporation.com (urw-din — Leadership nav font) -->
   <link rel="stylesheet" href="https://use.typekit.net/mxz5gvr.css" />
   <!-- Fallback if Typekit is domain-locked on localhost -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/portal.css?v=exec6" />
+  <link rel="stylesheet" href="css/portal.css?v=exec8" />
 </head>
 <body>
   <header class="site-header">
@@ -24,12 +37,6 @@
       </button>
     </div>
     <p class="meta" id="data-updated">Loading…</p>
-    <div class="legend" aria-label="Status legend">
-      <span class="legend-item"><i class="dot pass"></i> Passed</span>
-      <span class="legend-item"><i class="dot fail"></i> Failed</span>
-      <span class="legend-item"><i class="dot skip"></i> Skipped</span>
-      <span class="legend-item"><i class="dot warn"></i> Partial</span>
-    </div>
   </header>
 
   <main>
@@ -92,6 +99,6 @@
     <p id="load-error" class="error hidden" role="alert"></p>
   </main>
 
-  <script src="js/portal.js?v=exec6"></script>
+  <script src="js/portal.js?v=exec8"></script>
 </body>
 </html>

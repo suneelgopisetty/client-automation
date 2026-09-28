@@ -26,7 +26,7 @@
   --font: "urw-din", "Barlow Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --nav-text: #f0f0f0;
   --page-gutter: clamp(0.75rem, 1.6vw, 1.5rem);
-  --aside-width: clamp(260px, 22vw, 340px);
+  --aside-width: 30%;
 }
 
 *,
@@ -290,7 +290,7 @@ main {
 
 .home-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--aside-width);
+  grid-template-columns: minmax(0, 7fr) minmax(240px, 3fr);
   grid-template-areas: "main aside";
   gap: clamp(0.85rem, 1.5vw, 1.35rem);
   align-items: start;
@@ -455,16 +455,17 @@ main {
   word-break: break-word;
 }
 
-.runner-meta {
-  margin: 0.35rem 0 0;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
+.runner-owner {
+  margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #c7d7eb;
+  letter-spacing: 0.02em;
 }
 
-.runner-meta .product-logo-sm {
-  height: 1.15rem;
-  max-width: 4.5rem;
+.runner-owner.is-empty {
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .runner-stats {
@@ -484,7 +485,7 @@ main {
 
 @media (max-width: 1200px) {
   .home-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 28vw);
+    grid-template-columns: minmax(0, 7fr) minmax(220px, 3fr);
   }
   .tiles-products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -787,15 +788,44 @@ main {
   flex-direction: column;
   align-items: center;
   flex: 1 1 0;
-  min-width: 78px;
-  max-width: 110px;
+  min-width: 96px;
+  max-width: 130px;
 }
 
 .stack-col-svg {
   display: block;
-  width: 78px;
+  width: 96px;
   height: 240px;
   overflow: visible;
+}
+
+.stack-seg {
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.stack-seg:hover,
+.stack-seg:focus {
+  opacity: 0.82;
+  outline: none;
+}
+
+.stack-logo-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-logo-btn:hover .platform-logo,
+.stack-logo-btn:focus-visible .platform-logo {
+  filter: brightness(1.15);
 }
 
 .stack-logo-cell {
@@ -803,17 +833,17 @@ main {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 1.6rem;
-  padding: 0.3rem 0.1rem 0.05rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.15rem 0.1rem;
 }
 
 .stack-logo-spacer {
-  min-height: 1.6rem;
+  min-height: 2.75rem;
 }
 
 .stack-logo-cell .platform-logo {
-  height: 1.15rem;
-  max-width: 3rem;
+  height: 2.15rem;
+  max-width: 5.25rem;
   width: auto;
   object-fit: contain;
 }
@@ -1627,4 +1657,48 @@ img.product-logo-sm[src*="fox-sports-logo"] {
 
 .site-footer {
   display: none;
+}
+
+/* ── Product Ops / iframe embed (html.embed or body.embed) ── */
+html.embed,
+html.embed body,
+body.embed {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+html.embed body,
+body.embed {
+  /* Fill Product Ops content pane without double page chrome */
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -20%, rgba(30, 100, 180, 0.35), transparent 55%),
+    linear-gradient(180deg, #002447 0%, #001a33 45%, #001428 100%);
+}
+
+html.embed .site-header,
+body.embed .site-header {
+  padding-top: 0.85rem;
+  padding-bottom: 0.55rem;
+}
+
+html.embed .site-header .fox-logo,
+body.embed .site-header .fox-logo {
+  width: 88px;
+  height: auto;
+}
+
+html.embed .site-header h1,
+body.embed .site-header h1 {
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+}
+
+html.embed .subtitle,
+body.embed .subtitle {
+  font-size: 0.78rem;
+}
+
+html.embed .meta,
+body.embed .meta {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
 }

@@ -84,7 +84,7 @@
       "completedAt": "2026-09-25T07:57:18Z",
       "conclusion": "success",
       "device": "192.168.1.19",
-      "sourceDetail": "OS \u2014",
+      "sourceDetail": "OS —",
       "appVersion": "v1.21 (7247)",
       "durationSec": 2233,
       "passed": 9,
@@ -92,13 +92,13 @@
       "total": 9,
       "passRatePct": 100,
       "executionSummary": [
-        "Home container scroll \u2014 Passed",
-        "Verify Search and Playback from Search \u2014 Passed",
-        "Verify E2E Sanity Navigation Flow \u2014 Passed",
-        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff \u2014 Passed",
-        "League Hub from Sports \u2014 navigate, UI, background scroll, More Leagues, nested back \u2014 Passed",
-        "League Hub from Sports \u2014 navigate, UI, background scroll, More Leagues switch \u2014 Passed",
-        "Live Guide: Guide nav, Guide playback, Upcoming nav \u2014 Passed"
+        "Home container scroll — Passed",
+        "Verify Search and Playback from Search — Passed",
+        "Verify E2E Sanity Navigation Flow — Passed",
+        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff — Passed",
+        "League Hub from Sports — navigate, UI, background scroll, More Leagues, nested back — Passed",
+        "League Hub from Sports — navigate, UI, background scroll, More Leagues switch — Passed",
+        "Live Guide: Guide nav, Guide playback, Upcoming nav — Passed"
       ],
       "failures": [],
       "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35968472408",
@@ -124,7 +124,7 @@
       "completedAt": "2026-09-24T04:28:27Z",
       "conclusion": "failure",
       "device": "192.168.1.19",
-      "sourceDetail": "OS \u2014",
+      "sourceDetail": "OS —",
       "appVersion": "v1.21 (7247)",
       "durationSec": 1257,
       "passed": 3,
@@ -132,19 +132,19 @@
       "total": 62,
       "passRatePct": 4.8,
       "executionSummary": [
-        "Home container scroll \u2014 Failed",
-        "Verify Search and Playback from Search \u2014 Failed",
-        "Verify E2E Sanity Navigation Flow \u2014 Failed",
-        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff \u2014 Failed",
-        "League Hub from Home \u2014 navigate, UI, background scroll, More Leagues, nested back \u2014 Failed",
-        "Live Guide: Guide nav, Guide playback, Upcoming nav \u2014 Failed"
+        "Home container scroll — Failed",
+        "Verify Search and Playback from Search — Failed",
+        "Verify E2E Sanity Navigation Flow — Failed",
+        "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff — Failed",
+        "League Hub from Home — navigate, UI, background scroll, More Leagues, nested back — Failed",
+        "Live Guide: Guide nav, Guide playback, Upcoming nav — Failed"
       ],
       "failures": [
         "Containers > Navigation Scroll: Home container scroll",
         "Verify Search and Playback from Search",
         "Verify E2E Sanity Navigation Flow",
         "DISH TV Provider sign-in, sign-out, and Fox Profile from My Stuff",
-        "League Hub from Home \u2014 navigate, UI, background scroll, More Leagues, nested back",
+        "League Hub from Home — navigate, UI, background scroll, More Leagues, nested back",
         "Live Guide: Guide nav, Guide playback, Upcoming nav"
       ],
       "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35955791753",
@@ -178,12 +178,12 @@
       "total": 8,
       "passRatePct": 100,
       "executionSummary": [
-        "Home container scroll \u2014 Passed",
-        "Verify Search and Playback from Search \u2014 Passed",
-        "Verify E2E Sanity Navigation Flow \u2014 Passed",
-        "TV Provider / My Stuff flow \u2014 Passed",
-        "League Hub from Sports \u2014 Passed",
-        "Live Guide flow \u2014 Passed"
+        "Home container scroll — Passed",
+        "Verify Search and Playback from Search — Passed",
+        "Verify E2E Sanity Navigation Flow — Passed",
+        "TV Provider / My Stuff flow — Passed",
+        "League Hub from Sports — Passed",
+        "Live Guide flow — Passed"
       ],
       "failures": [],
       "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35578314662",
@@ -217,9 +217,9 @@
       "total": 8,
       "passRatePct": 100,
       "executionSummary": [
-        "Auth / Sign In \u2014 Failed",
-        "Home navigation \u2014 Passed",
-        "Playback smoke \u2014 Failed"
+        "Auth / Sign In — Failed",
+        "Home navigation — Passed",
+        "Playback smoke — Failed"
       ],
       "failures": [
         "Auth > Sign In",
@@ -258,13 +258,13 @@
       "total": 13,
       "passRatePct": 15.4,
       "executionSummary": [
-        "Settings Feature \u2014 Passed",
-        "VOD Playback Feature \u2014 Failed",
-        "Search Feature \u2014 Failed",
-        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
-        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Failed",
-        "Live Guide / Overlay Feature Add to My Stuff \u2014 Failed",
-        "Sign In Feature \u2014 Skipped"
+        "Settings Feature — Passed",
+        "VOD Playback Feature — Failed",
+        "Search Feature — Failed",
+        "Side Navigation Feature- Navigate to All Screens — Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature — Failed",
+        "Live Guide / Overlay Feature Add to My Stuff — Failed",
+        "Sign In Feature — Skipped"
       ],
       "failures": [
         "VOD Playback Feature",
@@ -305,11 +305,11 @@
       "total": 13,
       "passRatePct": 23.1,
       "executionSummary": [
-        "Sign In Feature \u2014 Passed",
-        "Settings Feature \u2014 Passed",
-        "VOD Playback Feature \u2014 Passed",
-        "Search Feature \u2014 Failed",
-        "Side Navigation Feature- Navigate to All Screens \u2014 Failed"
+        "Sign In Feature — Passed",
+        "Settings Feature — Passed",
+        "VOD Playback Feature — Passed",
+        "Search Feature — Failed",
+        "Side Navigation Feature- Navigate to All Screens — Failed"
       ],
       "failures": [
         "Search Feature",
@@ -348,8 +348,8 @@
       "total": 13,
       "passRatePct": 7.7,
       "executionSummary": [
-        "Sign In Feature \u2014 Passed",
-        "Settings Feature \u2014 Failed"
+        "Sign In Feature — Passed",
+        "Settings Feature — Failed"
       ],
       "failures": [
         "Settings Feature"
@@ -387,13 +387,13 @@
       "total": 11,
       "passRatePct": 100,
       "executionSummary": [
-        "Sign In Feature \u2014 Passed",
-        "Settings Feature \u2014 Passed",
-        "VOD Playback Feature \u2014 Passed",
-        "Search Feature \u2014 Passed",
-        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
-        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Passed",
-        "Live Guide / Overlay Feature Add to My Stuff \u2014 Passed"
+        "Sign In Feature — Passed",
+        "Settings Feature — Passed",
+        "VOD Playback Feature — Passed",
+        "Search Feature — Passed",
+        "Side Navigation Feature- Navigate to All Screens — Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature — Passed",
+        "Live Guide / Overlay Feature Add to My Stuff — Passed"
       ],
       "failures": [],
       "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36041275471/",
@@ -428,13 +428,13 @@
       "total": 11,
       "passRatePct": 100,
       "executionSummary": [
-        "Sign In Feature \u2014 Passed",
-        "Settings Feature \u2014 Passed",
-        "VOD Playback Feature \u2014 Passed",
-        "Search Feature \u2014 Passed",
-        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
-        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Passed",
-        "Live Guide / Overlay Feature Add to My Stuff \u2014 Passed"
+        "Sign In Feature — Passed",
+        "Settings Feature — Passed",
+        "VOD Playback Feature — Passed",
+        "Search Feature — Passed",
+        "Side Navigation Feature- Navigate to All Screens — Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature — Passed",
+        "Live Guide / Overlay Feature Add to My Stuff — Passed"
       ],
       "failures": [],
       "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36034827144/",
@@ -470,16 +470,16 @@
       "total": 13,
       "passRatePct": 69.2,
       "executionSummary": [
-        "Sign In Feature \u2014 Passed",
-        "Settings Feature \u2014 Passed",
-        "VOD Playback Feature \u2014 Passed",
-        "Search Feature \u2014 Passed",
-        "Side Navigation Feature- Navigate to All Screens \u2014 Passed",
-        "Subscriptions:SideNav-Navigation URL Validation Feature \u2014 Passed",
-        "Live Guide / Overlay Feature Add to My Stuff \u2014 Passed"
+        "Sign In Feature — Passed",
+        "Settings Feature — Passed",
+        "VOD Playback Feature — Passed",
+        "Search Feature — Passed",
+        "Side Navigation Feature- Navigate to All Screens — Passed",
+        "Subscriptions:SideNav-Navigation URL Validation Feature — Passed",
+        "Live Guide / Overlay Feature Add to My Stuff — Passed"
       ],
       "failures": [
-        "(1 feature failed \u2014 see Slack / HTML report)"
+        "(1 feature failed — see Slack / HTML report)"
       ],
       "reportUrl": "https://verbose-adventure-nyr2e35.pages.github.io/tvlabs-sanity/runs/36034917361/",
       "reportLabel": "View HTML Report",
@@ -511,13 +511,13 @@
       "passed": 8,
       "failed": 2,
       "total": 10,
-      "passRatePct": 80.0,
+      "passRatePct": 80,
       "executionSummary": [
-        "Verify Sign-In/out is working as expected \u2014 Passed",
-        "Playback for VOD and Live, Clips, Playlist is working as expected \u2014 Passed",
-        "Navigate to all the pages of the app \u2014 Passed",
-        "SearchV2 + Customer Care Need Help functionality is working as expected \u2014 Passed",
-        "MVPD Sign-In/out is working as expected \u2014 Failed"
+        "Verify Sign-In/out is working as expected — Passed",
+        "Playback for VOD and Live, Clips, Playlist is working as expected — Passed",
+        "Navigate to all the pages of the app — Passed",
+        "SearchV2 + Customer Care Need Help functionality is working as expected — Passed",
+        "MVPD Sign-In/out is working as expected — Failed"
       ],
       "failures": [
         "MVPD Sign-In/out is working as expected",
@@ -548,13 +548,13 @@
       "passed": 9,
       "failed": 0,
       "total": 9,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "executionSummary": [
-        "Verify Sign-In/out is working as expected \u2014 Passed",
-        "Playback for VOD and Live, Clips, Playlist is working as expected \u2014 Passed",
-        "Navigate to all the pages of the app \u2014 Passed",
-        "SearchV2 + Customer Care Need Help functionality is working as expected \u2014 Passed",
-        "MVPD Sign-In/out is working as expected \u2014 Passed"
+        "Verify Sign-In/out is working as expected — Passed",
+        "Playback for VOD and Live, Clips, Playlist is working as expected — Passed",
+        "Navigate to all the pages of the app — Passed",
+        "SearchV2 + Customer Care Need Help functionality is working as expected — Passed",
+        "MVPD Sign-In/out is working as expected — Passed"
       ],
       "failures": [],
       "reportUrl": "https://glowing-adventure-r261g9v.pages.github.io/reports/35959640103/",
@@ -582,13 +582,13 @@
       "passed": 9,
       "failed": 0,
       "total": 9,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "executionSummary": [
-        "Verify Sign-In/out is working as expected \u2014 Passed",
-        "Playback for VOD and Live, Clips, Playlist is working as expected \u2014 Passed",
-        "Navigate to all the pages of the app \u2014 Passed",
-        "SearchV2 + Customer Care Need Help functionality is working as expected \u2014 Passed",
-        "MVPD Sign-In/out is working as expected \u2014 Passed"
+        "Verify Sign-In/out is working as expected — Passed",
+        "Playback for VOD and Live, Clips, Playlist is working as expected — Passed",
+        "Navigate to all the pages of the app — Passed",
+        "SearchV2 + Customer Care Need Help functionality is working as expected — Passed",
+        "MVPD Sign-In/out is working as expected — Passed"
       ],
       "failures": [],
       "reportUrl": "https://glowing-adventure-r261g9v.pages.github.io/reports/35956412758/",
@@ -617,14 +617,14 @@
       "total": 6,
       "passRatePct": 100,
       "executionSummary": [
-        "Verify E2E Sanity Navigation Flow \u2014 Passed",
-        "Home container scroll \u2014 Passed",
-        "My Stuff container scroll \u2014 Passed",
-        "Sports container scroll \u2014 Passed",
-        "News container scroll \u2014 Passed",
-        "Shows container scroll \u2014 Passed",
-        "Sign in \u2014 Passed",
-        "Traveling prompt \u2014 Yes, I'm traveling \u2014 Passed"
+        "Verify E2E Sanity Navigation Flow — Passed",
+        "Home container scroll — Passed",
+        "My Stuff container scroll — Passed",
+        "Sports container scroll — Passed",
+        "News container scroll — Passed",
+        "Shows container scroll — Passed",
+        "Sign in — Passed",
+        "Traveling prompt — Yes, I'm traveling — Passed"
       ],
       "failures": [],
       "reportUrl": "https://foxcorp-product.github.io/foxone-LR-ai-unified-automation/reports/35612806196",
@@ -658,12 +658,12 @@
       "total": 2,
       "passRatePct": 50,
       "executionSummary": [
-        "Verify E2E Sanity Navigation Flow \u2014 Failed",
-        "MVPD Sign In / Sign Out via Xfinity \u2014 Passed",
-        "Sign out / Sign in \u2014 Passed",
-        "Traveling prompt \u2014 Yes, I'm traveling \u2014 Passed",
-        "Verify Search and Playback from Search \u2014 Passed",
-        "Playback: Series, Live, Movies \u2014 Passed"
+        "Verify E2E Sanity Navigation Flow — Failed",
+        "MVPD Sign In / Sign Out via Xfinity — Passed",
+        "Sign out / Sign in — Passed",
+        "Traveling prompt — Yes, I'm traveling — Passed",
+        "Verify Search and Playback from Search — Passed",
+        "Playback: Series, Live, Movies — Passed"
       ],
       "failures": [
         "Verify E2E Sanity Navigation Flow"
@@ -699,12 +699,12 @@
       "total": 2,
       "passRatePct": 50,
       "executionSummary": [
-        "Verify E2E Sanity Navigation Flow \u2014 Passed",
-        "MVPD Sign In / Sign Out via Xfinity \u2014 Failed",
-        "Sign out / Sign in \u2014 Passed",
-        "Traveling prompt \u2014 Yes, I'm traveling \u2014 Passed",
-        "Verify Search and Playback from Search \u2014 Passed",
-        "Playback: Series, Live, Movies \u2014 Passed"
+        "Verify E2E Sanity Navigation Flow — Passed",
+        "MVPD Sign In / Sign Out via Xfinity — Failed",
+        "Sign out / Sign in — Passed",
+        "Traveling prompt — Yes, I'm traveling — Passed",
+        "Verify Search and Playback from Search — Passed",
+        "Playback: Series, Live, Movies — Passed"
       ],
       "failures": [
         "MVPD Sign In / Sign Out via Xfinity"
@@ -739,17 +739,17 @@
       "passed": 14,
       "failed": 0,
       "total": 14,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "executionSummary": [
-        "Entity Pages \u2014 Passed",
-        "Favorites \u2014 Passed",
-        "Home Header Validation \u2014 Passed",
-        "Home League Selection Bar \u2014 Passed",
-        "Fox Account Auth \u2014 Passed",
-        "Scores \u2014 Passed",
-        "Search \u2014 Passed",
-        "Sports AI Onboarding \u2014 Passed",
-        "TV Provider Sign In \u2014 Passed"
+        "Entity Pages — Passed",
+        "Favorites — Passed",
+        "Home Header Validation — Passed",
+        "Home League Selection Bar — Passed",
+        "Fox Account Auth — Passed",
+        "Scores — Passed",
+        "Search — Passed",
+        "Sports AI Onboarding — Passed",
+        "TV Provider Sign In — Passed"
       ],
       "failures": [],
       "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35850619991/",
@@ -777,17 +777,17 @@
       "passed": 14,
       "failed": 0,
       "total": 14,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "executionSummary": [
-        "Entity Pages \u2014 Passed",
-        "Favorites \u2014 Passed",
-        "Home Header Validation \u2014 Passed",
-        "Home League Selection Bar \u2014 Passed",
-        "Fox Account Auth \u2014 Passed",
-        "Scores \u2014 Passed",
-        "Search \u2014 Passed",
-        "Sports AI Onboarding \u2014 Passed",
-        "TV Provider Sign In \u2014 Passed"
+        "Entity Pages — Passed",
+        "Favorites — Passed",
+        "Home Header Validation — Passed",
+        "Home League Selection Bar — Passed",
+        "Fox Account Auth — Passed",
+        "Scores — Passed",
+        "Search — Passed",
+        "Sports AI Onboarding — Passed",
+        "TV Provider Sign In — Passed"
       ],
       "failures": [],
       "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35850836993/",
@@ -815,17 +815,17 @@
       "passed": 14,
       "failed": 0,
       "total": 14,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "executionSummary": [
-        "Entity Pages \u2014 Passed",
-        "Favorites \u2014 Passed",
-        "Home Header Validation \u2014 Passed",
-        "Home League Selection Bar \u2014 Passed",
-        "Fox Account Auth \u2014 Passed",
-        "Scores \u2014 Passed",
-        "Search \u2014 Passed",
-        "Sports AI Onboarding \u2014 Passed",
-        "TV Provider Sign In \u2014 Passed"
+        "Entity Pages — Passed",
+        "Favorites — Passed",
+        "Home Header Validation — Passed",
+        "Home League Selection Bar — Passed",
+        "Fox Account Auth — Passed",
+        "Scores — Passed",
+        "Search — Passed",
+        "Sports AI Onboarding — Passed",
+        "TV Provider Sign In — Passed"
       ],
       "failures": [],
       "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35718516945/",
@@ -853,17 +853,17 @@
       "passed": 14,
       "failed": 0,
       "total": 14,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "executionSummary": [
-        "Entity Pages \u2014 Passed",
-        "Favorites \u2014 Passed",
-        "Home Header Validation \u2014 Passed",
-        "Home League Selection Bar \u2014 Passed",
-        "Fox Account Auth \u2014 Passed",
-        "Scores \u2014 Passed",
-        "Search \u2014 Passed",
-        "Sports AI Onboarding \u2014 Passed",
-        "TV Provider Sign In \u2014 Passed"
+        "Entity Pages — Passed",
+        "Favorites — Passed",
+        "Home Header Validation — Passed",
+        "Home League Selection Bar — Passed",
+        "Fox Account Auth — Passed",
+        "Scores — Passed",
+        "Search — Passed",
+        "Sports AI Onboarding — Passed",
+        "TV Provider Sign In — Passed"
       ],
       "failures": [],
       "reportUrl": "https://laughing-system-8g7mw54.pages.github.io/reports/35716561623/",
@@ -895,20 +895,20 @@
       "passRatePct": 82.5,
       "slackChannel": "#fw-automation-test",
       "executionSummary": [
-        "Read (News) \u2014 Failed (0 pass / 5 fail / 5 skipped)",
-        "Home \u2014 Failed (10 pass / 2 fail)",
-        "Settings \u2014 Failed (31 pass / 2 fail)",
-        "Events \u2014 Failed (6 pass / 1 fail)",
-        "Notifications enabled by default for added locations \u2014 Passed",
-        "Weather location selection changes details screen \u2014 Passed",
-        "Hourly / 14-Day / Historical tabs \u2014 Passed",
-        "Search results appear while typing \u2014 Passed"
+        "Read (News) — Failed (0 pass / 5 fail / 5 skipped)",
+        "Home — Failed (10 pass / 2 fail)",
+        "Settings — Failed (31 pass / 2 fail)",
+        "Events — Failed (6 pass / 1 fail)",
+        "Notifications enabled by default for added locations — Passed",
+        "Weather location selection changes details screen — Passed",
+        "Hourly / 14-Day / Historical tabs — Passed",
+        "Search results appear while typing — Passed"
       ],
       "failures": [
-        "Read (News) module \u2014 5 feature fails",
-        "Home module \u2014 2 feature fails",
-        "Settings module \u2014 2 feature fails",
-        "Events module \u2014 1 feature fail"
+        "Read (News) module — 5 feature fails",
+        "Home module — 2 feature fails",
+        "Settings module — 2 feature fails",
+        "Events module — 1 feature fail"
       ],
       "reportUrl": "https://github.com/fox-weather/fox-weather-mobile-ai-automation/actions/runs/35831908308",
       "reportLabel": "View Report",
@@ -939,17 +939,17 @@
       "passRatePct": 97.9,
       "slackChannel": "#fw-automation-test",
       "executionSummary": [
-        "Home \u2014 Failed (13 pass / 1 fail)",
-        "Events \u2014 Passed",
-        "Onboarding \u2014 Passed",
-        "Read (News) \u2014 Passed",
-        "Settings \u2014 Passed",
-        "Notifications enabled by default for added locations \u2014 Passed",
-        "Weather location selection changes details screen \u2014 Passed",
-        "Hourly / 14-Day / Historical tabs \u2014 Passed"
+        "Home — Failed (13 pass / 1 fail)",
+        "Events — Passed",
+        "Onboarding — Passed",
+        "Read (News) — Passed",
+        "Settings — Passed",
+        "Notifications enabled by default for added locations — Passed",
+        "Weather location selection changes details screen — Passed",
+        "Hourly / 14-Day / Historical tabs — Passed"
       ],
       "failures": [
-        "Home module \u2014 1 feature fail"
+        "Home module — 1 feature fail"
       ],
       "reportUrl": "https://github.com/fox-weather/fox-weather-mobile-ai-automation/actions/runs/35828381145",
       "reportLabel": "View Report",
@@ -969,7 +969,7 @@
       "completedAt": "2026-09-24T22:45:42Z",
       "conclusion": "failure",
       "device": "Chrome / Web",
-      "sourceDetail": "Momentic E2E \u00b7 #foxone_web_alerts",
+      "sourceDetail": "Momentic E2E · #foxone_web_alerts",
       "env": "PRE",
       "appVersion": "Momentic E2E",
       "releaseVersion": "momentic-68",
@@ -977,7 +977,7 @@
       "passed": 88,
       "failed": 18,
       "total": 106,
-      "passRatePct": 83.0,
+      "passRatePct": 83,
       "reportUrl": "https://dev-automation.foxplus.com/reports/momentic/68_2026-09-24_22-43-06/grouped.html",
       "reportLabel": "View Report",
       "links": [
@@ -993,7 +993,7 @@
         }
       ],
       "executionSummary": [
-        "Momentic E2E all \u2014 83.0%"
+        "Momentic E2E all — 83.0%"
       ],
       "failures": [
         "live controls dvr",
@@ -1009,7 +1009,7 @@
       "completedAt": "2026-09-24T17:42:27Z",
       "conclusion": "failure",
       "device": "Chrome / Web",
-      "sourceDetail": "Momentic E2E \u00b7 #foxone_web_alerts",
+      "sourceDetail": "Momentic E2E · #foxone_web_alerts",
       "env": "PRE",
       "appVersion": "Momentic E2E",
       "releaseVersion": "momentic-65",
@@ -1033,7 +1033,7 @@
         }
       ],
       "executionSummary": [
-        "Momentic E2E all \u2014 79.2%"
+        "Momentic E2E all — 79.2%"
       ],
       "failures": [
         "vod endcard autoplay",
@@ -1048,7 +1048,7 @@
       "completedAt": "2026-09-23T19:12:48Z",
       "conclusion": "failure",
       "device": "Chrome / Web",
-      "sourceDetail": "Momentic E2E \u00b7 #foxone_web_alerts",
+      "sourceDetail": "Momentic E2E · #foxone_web_alerts",
       "env": "PRE",
       "appVersion": "Momentic E2E",
       "releaseVersion": "momentic-64",
@@ -1072,7 +1072,7 @@
         }
       ],
       "executionSummary": [
-        "Momentic E2E all \u2014 77.4%"
+        "Momentic E2E all — 77.4%"
       ],
       "failures": [
         "vod endcard autoplay",
@@ -1088,7 +1088,7 @@
       "completedAt": "2026-09-24T19:00:18Z",
       "conclusion": "success",
       "device": "Chrome desktop",
-      "sourceDetail": "Daily E2E \u00b7 #fscom-automation-test",
+      "sourceDetail": "Daily E2E · #fscom-automation-test",
       "env": "PROD",
       "appVersion": "24c5e3e",
       "releaseVersion": "24c5e3e",
@@ -1096,7 +1096,7 @@
       "passed": 61,
       "failed": 0,
       "total": 61,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "reportUrl": "https://foxcorp.github.io/fscom-web-ai-automation/runs/2026-09-24_36039671370/index.html",
       "reportLabel": "View HTML Report",
       "links": [
@@ -1112,7 +1112,7 @@
         }
       ],
       "executionSummary": [
-        "Daily E2E (prod) \u00b7 Chrome desktop \u2014 Passed"
+        "Daily E2E (prod) · Chrome desktop — Passed"
       ],
       "failures": []
     },
@@ -1123,7 +1123,7 @@
       "completedAt": "2026-09-10T18:17:15Z",
       "conclusion": "success",
       "device": "chromium",
-      "sourceDetail": "FSCOM Web E2E \u00b7 #fscom-automation-test",
+      "sourceDetail": "FSCOM Web E2E · #fscom-automation-test",
       "env": "PROD",
       "appVersion": "fd7ea21",
       "releaseVersion": "fd7ea21",
@@ -1131,7 +1131,7 @@
       "passed": 1,
       "failed": 0,
       "total": 1,
-      "passRatePct": 100.0,
+      "passRatePct": 100,
       "reportUrl": "https://github.com/foxcorp/fscom-web-ai-automation/actions/runs/34512852340",
       "reportLabel": "View HTML Report",
       "links": [
@@ -1147,7 +1147,7 @@
         }
       ],
       "executionSummary": [
-        "FSCOM Web E2E \u2014 Passed"
+        "FSCOM Web E2E — Passed"
       ],
       "failures": []
     },
@@ -1158,7 +1158,7 @@
       "completedAt": "2026-09-03T20:36:44Z",
       "conclusion": "failure",
       "device": "api, chromium, mobile-safari",
-      "sourceDetail": "full suite \u00b7 #fscom-automation-test",
+      "sourceDetail": "full suite · #fscom-automation-test",
       "env": "PROD",
       "appVersion": "605369b",
       "releaseVersion": "605369b",
@@ -1167,7 +1167,7 @@
       "failed": 1,
       "skipped": 22,
       "total": 102,
-      "passRatePct": 99.0,
+      "passRatePct": 99,
       "reportUrl": "https://foxcorp.github.io/fscom-web-ai-automation/runs/2026-09-03_33796946371/index.html",
       "reportLabel": "View HTML Report",
       "links": [
@@ -1178,7 +1178,7 @@
         }
       ],
       "executionSummary": [
-        "full Validation \u2014 99.0%"
+        "full Validation — 99.0%"
       ],
       "failures": [
         "Auth (1)"
@@ -1203,11 +1203,12 @@
       "product": "foxone",
       "type": "self-host",
       "status": "busy",
-      "os": "OS \u2014",
+      "os": "OS —",
       "appVersion": "v1.21 (7247)",
       "lastSeenAt": "2026-09-25T07:57:18Z",
       "lastRunId": "35968472408",
-      "lastPassRatePct": 100
+      "lastPassRatePct": 100,
+      "owner": "Suneel Kumar"
     },
     {
       "id": "iphone-5",
@@ -1220,8 +1221,9 @@
       "appVersion": "v1.30.0 # 20260922.2",
       "lastSeenAt": "2026-09-24T07:52:21Z",
       "lastRunId": "35963317927",
-      "lastPassRatePct": 80.0,
-      "assetTag": "iPad-Lab-05"
+      "lastPassRatePct": 80,
+      "assetTag": "iPad-Lab-05",
+      "owner": "Mobile Lab"
     },
     {
       "id": "android-6",
@@ -1234,7 +1236,8 @@
       "appVersion": "v1.23.0 # 26092302",
       "lastSeenAt": "2026-09-24T05:40:15Z",
       "lastRunId": "35959640103",
-      "lastPassRatePct": 100.0
+      "lastPassRatePct": 100,
+      "owner": "Mobile Lab"
     },
     {
       "id": "android-7",
@@ -1247,7 +1250,8 @@
       "appVersion": "v1.23.0 # 26092302",
       "lastSeenAt": "2026-09-24T04:52:27Z",
       "lastRunId": "35956412758",
-      "lastPassRatePct": 100.0
+      "lastPassRatePct": 100,
+      "owner": "Mobile Lab"
     },
     {
       "id": "iphone-8",
@@ -1260,7 +1264,8 @@
       "appVersion": "v3.13.0 # 1",
       "lastSeenAt": "2026-09-23T12:39:38Z",
       "lastRunId": "35831908308",
-      "lastPassRatePct": 82.5
+      "lastPassRatePct": 82.5,
+      "owner": "FOX Weather QA"
     },
     {
       "id": "iphone-9",
@@ -1273,7 +1278,8 @@
       "appVersion": "v5.160.0 # 5160000",
       "lastSeenAt": "2026-09-23T11:07:49Z",
       "lastRunId": "35850619991",
-      "lastPassRatePct": 100.0
+      "lastPassRatePct": 100,
+      "owner": "FOX Sports QA"
     },
     {
       "id": "android-10",
@@ -1286,7 +1292,8 @@
       "appVersion": "v5.159.0 # 515900000",
       "lastSeenAt": "2026-09-23T11:04:35Z",
       "lastRunId": "35850836993",
-      "lastPassRatePct": 100.0
+      "lastPassRatePct": 100,
+      "owner": "FOX Sports QA"
     },
     {
       "id": "appletv-12",
@@ -1299,7 +1306,8 @@
       "appVersion": "v1.24.0 (2026121079)",
       "lastSeenAt": "2026-09-21T14:53:55Z",
       "lastRunId": "35612806196",
-      "lastPassRatePct": 100
+      "lastPassRatePct": 100,
+      "owner": "tvOS Lab"
     },
     {
       "id": "firetv-13",
@@ -1312,7 +1320,8 @@
       "appVersion": "v1.18.2 (520260918)",
       "lastSeenAt": "2026-09-21T09:41:24Z",
       "lastRunId": "35582408052",
-      "lastPassRatePct": 100
+      "lastPassRatePct": 100,
+      "owner": "LR Lab"
     },
     {
       "id": "firetv-14",
@@ -1325,7 +1334,8 @@
       "appVersion": "v1.18.2 (520260918)",
       "lastSeenAt": "2026-09-21T09:41:24Z",
       "lastRunId": "35582408052",
-      "lastPassRatePct": 100
+      "lastPassRatePct": 100,
+      "owner": "LR Lab"
     },
     {
       "id": "vizio-2",
@@ -1338,7 +1348,8 @@
       "appVersion": "latest",
       "lastSeenAt": "2026-09-24T20:59:38Z",
       "lastRunId": "36055713757",
-      "lastPassRatePct": 15.4
+      "lastPassRatePct": 15.4,
+      "owner": "TVLabs"
     },
     {
       "id": "lg-3",
@@ -1351,7 +1362,8 @@
       "appVersion": "latest",
       "lastSeenAt": "2026-09-24T20:47:14Z",
       "lastRunId": "36055548356",
-      "lastPassRatePct": 23.1
+      "lastPassRatePct": 23.1,
+      "owner": "TVLabs"
     },
     {
       "id": "samsung-4",
@@ -1364,7 +1376,8 @@
       "appVersion": "latest",
       "lastSeenAt": "2026-09-24T20:44:26Z",
       "lastRunId": "36055685685",
-      "lastPassRatePct": 7.7
+      "lastPassRatePct": 7.7,
+      "owner": "TVLabs"
     },
     {
       "id": "android-11",
@@ -1377,7 +1390,8 @@
       "appVersion": "v3.11.0 # 1616",
       "lastSeenAt": "2026-09-23T07:21:15Z",
       "lastRunId": "35828381145",
-      "lastPassRatePct": 97.9
+      "lastPassRatePct": 97.9,
+      "owner": "FOX Weather QA"
     }
   ],
   "productGroups": {

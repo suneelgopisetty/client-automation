@@ -4,6 +4,23 @@
  */
 
 (function () {
+  const params = new URLSearchParams(location.search);
+  const isEmbed =
+    params.get("embed") === "1" ||
+    params.get("productops") === "1" ||
+    (function () {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    })();
+
+  if (isEmbed) {
+    document.documentElement.classList.add("embed");
+    document.body.classList.add("embed");
+  }
+
   const DEFAULT_PRODUCTS = [
     { id: "foxone", label: "FOX One" },
     { id: "foxsports", label: "FOX Sports" },
@@ -461,13 +478,27 @@
     if (runner.assetTag) return runner.assetTag;
     if (runner.displayName) return runner.displayName;
     const n = String(runner.name || "").trim();
-    // Avoid personal lab names on the exec home view
-    if (!n || /['’]s\s/i.test(n) || /\b(rahul|user's)\b/i.test(n)) {
+    if (!n) {
       const plat = (runner.platform || "lab").toUpperCase();
       const id = runner.id || "device";
       return `${plat}-${String(id).replace(/[^a-z0-9-]/gi, "").slice(0, 12)}`;
     }
     return n;
+  }
+
+  function runnerOwnerName(runner) {
+    if (!runner) return "";
+    return String(runner.owner || runner.deviceOwner || runner.ownerName || "").trim();
+  }
+
+  function openRunResults(run) {
+    if (!run) return;
+    const url = run.reportUrl || (run.links || []).find((l) => l && l.url)?.url;
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
+    openDetail(run.id);
   }
 
   /** One stacked bar per platform: % + version on/ beside every segment */
@@ -480,8 +511,8 @@
     const padB = 4;
     const plotH = H - padT - padB;
     const barX = 6;
-    const barW = 28;
-    const svgW = 78; // room for outside labels on short segments
+    const barW = 34;
+    const svgW = 96; // room for outside labels on short segments
 
     const legend = colors
       .map(
@@ -494,6 +525,7 @@
       .map((plat) => {
         const newestFirst = recentRuns(runsFor(productId, plat.id), 3);
         const runs = newestFirst.slice().reverse(); // R1→R3
+        const latest = newestFirst[0] || null;
 
         let yCursor = padT + plotH;
         let bars = "";
@@ -511,34 +543,43 @@
           const fullVer = releaseLabel(run, i);
           const date = shortDate(run.completedAt);
           const pctText = `${Math.round(pct)}%`;
+          const reportUrl = run.reportUrl || "";
           tipParts.push(`R${i + 1}: ${pctText} · ${fullVer} · ${date}`);
-          bars += `<rect x="${barX}" y="${y}" width="${barW}" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date}</title></rect>`;
+          bars += `<rect class="stack-seg" data-run-id="${escapeHtml(String(run.id))}" data-report-url="${escapeHtml(reportUrl)}" tabindex="0" role="link" aria-label="${escapeHtml(plat.label)} R${i + 1} ${pctText} open results" x="${barX}" y="${y}" width="${barW}" height="${h}" rx="3" fill="${colors[i]}" opacity="0.95"><title>${escapeHtml(plat.label)} · R${i + 1} · ${fullVer} · ${pctText} · ${date} · click for results</title></rect>`;
 
           const midY = y + h / 2;
-          if (h >= 36) {
+          if (h >= 40) {
             // Tall: % + version inside the segment
-            labels += `<text x="${barX + barW / 2}" y="${midY - 2}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text x="${barX + barW / 2}" y="${midY + 11}" text-anchor="middle" fill="rgba(248,250,252,0.9)" font-size="8" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
-          } else if (h >= 20) {
+            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW / 2}" y="${midY - 3}" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW / 2}" y="${midY + 13}" text-anchor="middle" fill="rgba(248,250,252,0.92)" font-size="11" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+          } else if (h >= 22) {
             // Medium: % inside, version to the right
-            labels += `<text x="${barX + barW / 2}" y="${midY + 3.5}" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text x="${barX + barW + 4}" y="${midY + 3.5}" text-anchor="start" fill="#e2e8f0" font-size="9" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW / 2}" y="${midY + 4}" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW + 4}" y="${midY + 4}" text-anchor="start" fill="#e2e8f0" font-size="12" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
           } else {
             // Short: % + version to the right of the segment (always visible)
-            labels += `<text x="${barX + barW + 4}" y="${midY + 3.5}" text-anchor="start" fill="#f8fafc" font-size="9" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
-            labels += `<text x="${barX + barW + 4}" y="${midY + 13}" text-anchor="start" fill="#94a3b8" font-size="8" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW + 4}" y="${midY + 3}" text-anchor="start" fill="#f8fafc" font-size="12" font-weight="700" font-family="urw-din, Barlow Condensed, sans-serif">${pctText}</text>`;
+            labels += `<text class="stack-label" pointer-events="none" x="${barX + barW + 4}" y="${midY + 16}" text-anchor="start" fill="#cbd5e1" font-size="11" font-weight="600" font-family="urw-din, Barlow Condensed, sans-serif">${escapeHtml(ver)}</text>`;
           }
           yCursor = y;
         }
 
+        const latestAttrs = latest
+          ? `data-run-id="${escapeHtml(String(latest.id))}" data-report-url="${escapeHtml(latest.reportUrl || "")}"`
+          : "";
+
         return `
           <div class="stack-col" title="${escapeHtml(tipParts.join(" · ") || plat.label)}">
-            <svg class="stack-col-svg" viewBox="0 0 ${svgW} ${H}" width="${svgW}" height="${H}" aria-hidden="true">
+            <svg class="stack-col-svg" viewBox="0 0 ${svgW} ${H}" width="${svgW}" height="${H}" aria-hidden="false">
               <line x1="${barX}" y1="${padT + plotH}" x2="${barX + barW}" y2="${padT + plotH}" stroke="rgba(158,182,209,0.35)" stroke-width="1"/>
               ${bars}
               ${labels}
             </svg>
-            <div class="stack-logo-cell">${logoHtml(plat.id)}</div>
+            <div class="stack-logo-cell">
+              <button type="button" class="stack-logo-btn" ${latestAttrs} aria-label="${escapeHtml(plat.label)} — open latest results">
+                ${logoHtml(plat.id)}
+              </button>
+            </div>
           </div>
         `;
       })
@@ -547,14 +588,14 @@
     const yTicks = [0, 100, 200, 300]
       .map((y) => {
         const gy = padT + plotH - (y / yMax) * plotH;
-        return `<text x="34" y="${gy + 4}" text-anchor="end" fill="#9eb6d1" font-size="10" font-family="urw-din, Barlow Condensed, sans-serif">${y}</text>
+        return `<text x="34" y="${gy + 4}" text-anchor="end" fill="#9eb6d1" font-size="11" font-family="urw-din, Barlow Condensed, sans-serif">${y}</text>
           <line x1="38" y1="${gy}" x2="48" y2="${gy}" stroke="rgba(158,182,209,0.28)" stroke-width="1"/>`;
       })
       .join("");
 
     return `
       <div class="stack-chart">
-        <div class="stack-legend">${legend}<span class="stack-legend-note">R1→R3 · short bars label to the right</span></div>
+        <div class="stack-legend">${legend}<span class="stack-legend-note">R1→R3 · click a bar for results</span></div>
         <div class="stack-plot">
           <div class="stack-yaxis-wrap">
             <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
@@ -698,6 +739,41 @@
       });
     });
     els.chartsByPlatform.innerHTML = cards.join("");
+    bindChartResultClicks();
+  }
+
+  function bindChartResultClicks() {
+    if (!els.chartsByClient || els.chartsByClient.dataset.boundClicks === "1") return;
+    els.chartsByClient.dataset.boundClicks = "1";
+
+    function handleTarget(target) {
+      if (!target) return;
+      const runId = target.getAttribute("data-run-id");
+      if (!runId) return;
+      const reportUrl = target.getAttribute("data-report-url") || "";
+      const run = (data.runs || []).find((r) => String(r.id) === String(runId));
+      if (reportUrl) {
+        window.open(reportUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
+      if (run) openRunResults(run);
+      else openDetail(runId);
+    }
+
+    els.chartsByClient.addEventListener("click", (e) => {
+      const t = e.target.closest("[data-run-id]");
+      if (!t || !els.chartsByClient.contains(t)) return;
+      e.preventDefault();
+      handleTarget(t);
+    });
+
+    els.chartsByClient.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const t = e.target.closest("[data-run-id]");
+      if (!t || !els.chartsByClient.contains(t)) return;
+      e.preventDefault();
+      handleTarget(t);
+    });
   }
 
   function runners() {
@@ -721,6 +797,10 @@
       const pct =
         runner.lastPassRatePct != null ? `${runner.lastPassRatePct}%` : "—";
       const label = runnerDisplayName(runner);
+      const owner = runnerOwnerName(runner);
+      const ownerHtml = owner
+        ? `<p class="runner-owner">${escapeHtml(owner)}</p>`
+        : `<p class="runner-owner is-empty">Owner —</p>`;
       return `
         <article class="runner-card status-${escapeHtml(st)}" title="${escapeHtml(runner.name || label)}">
           <div class="runner-card-top">
@@ -728,7 +808,7 @@
             <span class="runner-status"><i></i>${escapeHtml(runnerStatusLabel(st))}</span>
           </div>
           <p class="runner-name">${escapeHtml(label)}</p>
-          <p class="runner-meta">${logoHtml(runner.product, "product-logo-sm")}</p>
+          ${ownerHtml}
           <div class="runner-stats">
             <span>${escapeHtml(runner.os || "—")}</span>
             <span>Last ${escapeHtml(pct)}</span>
