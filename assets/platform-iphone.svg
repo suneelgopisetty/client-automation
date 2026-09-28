@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-label="iPhone">
-  <rect width="160" height="40" rx="6" fill="#1d1d1f"/>
-  <text x="80" y="27" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">iPhone</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" role="img" aria-label="iPhone">
+  <rect width="160" height="48" rx="8" fill="#F5F5F7"/>
+  <text x="80" y="32" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" font-weight="700" fill="#1d1d1f">iPhone</text>
 </svg>

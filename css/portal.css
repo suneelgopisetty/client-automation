@@ -775,13 +775,14 @@ main {
 }
 
 .stack-cols {
-  display: flex;
+  /* Equal columns across the full plot — no left-clump for 2–3 platforms */
+  display: grid;
+  grid-template-columns: repeat(var(--plat-count, 3), minmax(0, 1fr));
   flex: 1 1 auto;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 0.55rem;
+  width: 100%;
   min-width: 0;
-  overflow-x: auto;
+  align-items: end;
+  column-gap: 0.35rem;
   padding-bottom: 0.15rem;
 }
 
@@ -790,15 +791,14 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  flex: 0 0 88px;
-  width: 88px;
-  min-width: 88px;
-  max-width: 88px;
+  width: 100%;
+  min-width: 0;
 }
 
 .stack-col-svg {
   display: block;
-  width: 88px;
+  width: 100%;
+  max-width: 96px;
   height: 240px;
   overflow: visible;
   margin: 0 auto;
@@ -822,7 +822,8 @@ main {
   padding: 0.15rem 0 0;
   margin: 0;
   cursor: pointer;
-  width: 88px;
+  width: 100%;
+  max-width: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -830,37 +831,44 @@ main {
 
 .stack-logo-btn:hover .platform-logo,
 .stack-logo-btn:focus-visible .platform-logo {
-  filter: brightness(1.12);
-  transform: scale(1.04);
+  filter: brightness(1.08);
+  transform: scale(1.05);
 }
 
 .stack-logo-cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 88px;
-  min-height: 2.75rem;
-  padding: 0.4rem 0 0.15rem;
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.45rem 0.1rem 0.2rem;
   box-sizing: border-box;
 }
 
 .stack-logo-spacer {
-  min-height: 2.75rem;
-  width: 88px;
+  min-height: 3.1rem;
+  width: 100%;
 }
 
 .stack-logo-cell .platform-logo,
 .stack-logo-cell .stack-plat-logo {
-  height: 2.1rem;
-  max-width: 5rem;
+  height: 2.55rem;
+  max-width: 6.5rem;
   width: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  /* Keep brand badge colors — do not invert to white */
   filter: none;
   opacity: 1;
-  border-radius: 6px;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Fire TV — bright Amazon orange, must stay readable on navy */
+.stack-col[data-platform="firetv"] .stack-plat-logo,
+.stack-col[data-platform="firetv"] .platform-logo {
+  height: 2.75rem;
+  max-width: 7.25rem;
 }
 
 .release-graph {

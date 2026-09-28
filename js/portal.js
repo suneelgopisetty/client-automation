@@ -602,6 +602,8 @@
       })
       .join("");
 
+    const platCount = Math.max(plats.length, 1);
+
     return `
       <div class="stack-chart">
         <div class="stack-legend">${legend}<span class="stack-legend-note">R1→R3 · click a bar for run detail</span></div>
@@ -610,7 +612,7 @@
             <svg class="stack-yaxis" viewBox="0 0 48 ${H}" width="48" height="${H}" aria-hidden="true">${yTicks}</svg>
             <div class="stack-logo-cell stack-logo-spacer" aria-hidden="true"></div>
           </div>
-          <div class="stack-cols">${cols}</div>
+          <div class="stack-cols" style="--plat-count:${platCount}">${cols}</div>
         </div>
       </div>
     `;
