@@ -840,35 +840,45 @@ main {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 3.1rem;
-  padding: 0.45rem 0.1rem 0.2rem;
+  min-height: 3.85rem;
+  padding: 0.5rem 0.1rem 0.25rem;
   box-sizing: border-box;
 }
 
 .stack-logo-spacer {
-  min-height: 3.1rem;
+  min-height: 3.85rem;
   width: 100%;
 }
 
 .stack-logo-cell .platform-logo,
 .stack-logo-cell .stack-plat-logo {
-  height: 2.55rem;
-  max-width: 6.5rem;
+  height: 3.35rem;
+  max-width: 8.75rem;
   width: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
   filter: none;
   opacity: 1;
-  border-radius: 7px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
-/* Fire TV — bright Amazon orange, must stay readable on navy */
+/* Keep all graph platform badges equally large (Samsung / Apple TV / iPhone / Android / …) */
+.stack-col[data-platform="samsung"] .stack-plat-logo,
+.stack-col[data-platform="samsung"] .platform-logo,
+.stack-col[data-platform="appletv"] .stack-plat-logo,
+.stack-col[data-platform="appletv"] .platform-logo,
+.stack-col[data-platform="iphone"] .stack-plat-logo,
+.stack-col[data-platform="iphone"] .platform-logo,
+.stack-col[data-platform="android"] .stack-plat-logo,
+.stack-col[data-platform="android"] .platform-logo,
 .stack-col[data-platform="firetv"] .stack-plat-logo,
-.stack-col[data-platform="firetv"] .platform-logo {
-  height: 2.75rem;
-  max-width: 7.25rem;
+.stack-col[data-platform="firetv"] .platform-logo,
+.stack-col[data-platform="web"] .stack-plat-logo,
+.stack-col[data-platform="web"] .platform-logo {
+  height: 3.5rem;
+  max-width: 9.25rem;
 }
 
 .release-graph {
