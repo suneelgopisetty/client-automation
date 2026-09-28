@@ -934,9 +934,16 @@ main {
   justify-content: center;
 }
 
-.tile-logo-only .product-logo-lg {
-  height: 4.4rem;
-  max-width: 220px;
+.tile-logo-only .product-logo-lg,
+.tile-logo-only img.product-logo[data-brand],
+.tile-logo-only img.product-logo[src*="fox-one-logo"],
+.tile-logo-only img.product-logo[src*="fox-sports-logo"],
+.tile-logo-only img.product-logo[src*="fox-weather-logo"] {
+  height: 4.25rem;
+  width: auto;
+  max-width: 11.5rem;
+  max-height: 4.25rem;
+  object-fit: contain;
 }
 
 .tile-product.product-foxone { --prod: var(--foxone); }
@@ -996,9 +1003,16 @@ main {
   max-width: 5.5rem;
 }
 
-.chart-card-head .product-logo-sm {
-  height: 1.55rem;
-  max-width: 4.5rem;
+.chart-card-head .product-logo-sm,
+.chart-card-head img.product-logo[data-brand],
+.chart-card-head img.product-logo[src*="fox-one-logo"],
+.chart-card-head img.product-logo[src*="fox-sports-logo"],
+.chart-card-head img.product-logo[src*="fox-weather-logo"] {
+  height: 2rem;
+  width: auto;
+  max-width: 7.5rem;
+  max-height: 2rem;
+  object-fit: contain;
 }
 
 .screen-reader-only {
@@ -1114,79 +1128,57 @@ main {
   align-items: center;
 }
 
-.product-logo {
-  display: block;
-  height: 1.6rem;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-.product-logo-lg {
-  height: 3.4rem;
-  max-width: 180px;
-}
-
-.product-logo-sm {
-  height: 2rem;
-  max-width: 110px;
-}
-
-/* Stacked FOX One mark — taller aspect */
-img.product-logo[src*="fox-one-logo"] {
-  background: transparent;
-  padding: 0;
-  height: 3.6rem;
-  max-width: 200px;
-  width: auto;
-}
-
-img.product-logo-sm[src*="fox-one-logo"] {
-  height: 2.35rem;
-  max-width: 120px;
-}
-
-/* FOX Weather badge — near-square */
+/* Unified product logo sizes — FOX One / Sports / Weather match everywhere */
+.product-logo,
+img.product-logo[data-brand],
+img.product-logo[src*="fox-one-logo"],
+img.product-logo[src*="fox-sports-logo"],
 img.product-logo[src*="fox-weather-logo"] {
-  height: 3.5rem;
-  max-width: 3.5rem;
+  display: block;
+  height: 2.75rem;
   width: auto;
-}
-
-img.product-logo-sm[src*="fox-weather-logo"] {
-  height: 2.1rem;
-  max-width: 2.1rem;
-}
-
-/* FOX Sports — stacked FOX / SPORTS wordmark (new) */
-img.product-logo.product-logo-foxsports,
-img.product-logo[data-brand="foxsports"],
-img.product-logo[src*="fox-sports-logo"] {
-  height: 4.4rem;
-  max-width: 220px;
-  width: auto;
+  max-width: 9.5rem;
+  max-height: 2.75rem;
   object-fit: contain;
+  object-position: center;
   background: transparent;
   padding: 0;
 }
 
-img.product-logo-sm.product-logo-foxsports,
-img.product-logo-sm[data-brand="foxsports"],
-img.product-logo-sm[src*="fox-sports-logo"] {
-  height: 2.6rem;
-  max-width: 140px;
+.product-logo-lg,
+img.product-logo-lg[data-brand],
+img.product-logo-lg[src*="fox-one-logo"],
+img.product-logo-lg[src*="fox-sports-logo"],
+img.product-logo-lg[src*="fox-weather-logo"] {
+  height: 4.25rem;
+  max-width: 11.5rem;
+  max-height: 4.25rem;
 }
 
-.tile-logo-only .product-logo-foxsports,
-.tile-logo-only img[data-brand="foxsports"] {
-  height: 5rem;
-  max-width: 240px;
+.product-logo-sm,
+img.product-logo-sm[data-brand],
+img.product-logo-sm[src*="fox-one-logo"],
+img.product-logo-sm[src*="fox-sports-logo"],
+img.product-logo-sm[src*="fox-weather-logo"] {
+  height: 2rem;
+  max-width: 7.5rem;
+  max-height: 2rem;
 }
 
-.chart-card-head img[data-brand="foxsports"],
-.chart-card-head .product-logo-foxsports {
-  height: 2.4rem;
-  max-width: 130px;
+.page-heading .product-logo,
+.page-heading .product-logo-lg,
+.page-brand .product-logo,
+.page-brand .product-logo-lg {
+  height: 3.25rem;
+  max-width: 10rem;
+  max-height: 3.25rem;
+}
+
+.detail-hero .product-logo,
+.detail-hero .product-logo-sm {
+  height: 2rem;
+  max-width: 7.5rem;
+  max-height: 2rem;
 }
 
 .platform-logo {
