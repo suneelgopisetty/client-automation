@@ -585,9 +585,8 @@
               ${labels}
             </svg>
             <div class="stack-logo-cell">
-              <button type="button" class="stack-logo-btn" ${latestAttrs} aria-label="${escapeHtml(plat.label)} — open latest run">
-                ${logoHtml(plat.id, "", { localFirst: true })}
-                <span class="stack-plat-label">${escapeHtml(plat.label)}</span>
+              <button type="button" class="stack-logo-btn" ${latestAttrs} aria-label="${escapeHtml(plat.label)} — open latest run" title="${escapeHtml(plat.label)}">
+                ${logoHtml(plat.id, "stack-plat-logo", { localFirst: true })}
               </button>
             </div>
           </div>

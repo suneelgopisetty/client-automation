@@ -819,62 +819,48 @@ main {
   appearance: none;
   border: 0;
   background: transparent;
-  padding: 0.2rem 0 0;
+  padding: 0.15rem 0 0;
   margin: 0;
   cursor: pointer;
   width: 88px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.25rem;
+  justify-content: center;
 }
 
 .stack-logo-btn:hover .platform-logo,
 .stack-logo-btn:focus-visible .platform-logo {
-  filter: brightness(1.15);
+  filter: brightness(1.12);
+  transform: scale(1.04);
 }
 
 .stack-logo-cell {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 88px;
-  min-height: 3.6rem;
-  padding: 0.35rem 0 0.1rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0 0.15rem;
   box-sizing: border-box;
 }
 
 .stack-logo-spacer {
-  min-height: 3.6rem;
+  min-height: 2.75rem;
   width: 88px;
 }
 
-.stack-logo-cell .platform-logo {
-  height: 1.85rem;
-  max-width: 4.5rem;
+.stack-logo-cell .platform-logo,
+.stack-logo-cell .stack-plat-logo {
+  height: 2.1rem;
+  max-width: 5rem;
   width: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.95;
-}
-
-.stack-plat-label {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-family: var(--font);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
-  line-height: 1.15;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* Keep brand badge colors — do not invert to white */
+  filter: none;
+  opacity: 1;
+  border-radius: 6px;
 }
 
 .release-graph {
