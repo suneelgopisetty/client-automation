@@ -686,10 +686,20 @@ main {
 .chart-card-head {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.65rem;
   margin-bottom: 0.55rem;
-  min-height: 1.75rem;
-  flex-wrap: wrap;
+  min-height: 3.25rem;
+  flex-wrap: nowrap;
+}
+
+/* Equal brand mark box for FOX One / Sports / Weather in every graph */
+.chart-card-head .chart-brand {
+  flex: 0 0 10.5rem;
+  width: 10.5rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .chart-card-title {
@@ -699,6 +709,11 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--nav-text);
+}
+
+/* Logo already carries the product name — hide duplicate text on client graphs */
+.chart-card-wide .chart-card-head .chart-card-title {
+  display: none;
 }
 
 .chart-card-meta {
@@ -1014,15 +1029,18 @@ main {
 }
 
 .chart-card-head .product-logo-sm,
+.chart-card-head .chart-brand .product-logo,
+.chart-card-head .chart-brand .product-logo-sm,
 .chart-card-head img.product-logo[data-brand],
 .chart-card-head img.product-logo[src*="fox-one-logo"],
 .chart-card-head img.product-logo[src*="fox-sports-logo"],
 .chart-card-head img.product-logo[src*="fox-weather-logo"] {
-  height: 2rem;
-  width: auto;
-  max-width: 7.5rem;
-  max-height: 2rem;
+  width: 10.5rem;
+  height: 3rem;
+  max-width: 10.5rem;
+  max-height: 3rem;
   object-fit: contain;
+  object-position: left center;
 }
 
 .screen-reader-only {

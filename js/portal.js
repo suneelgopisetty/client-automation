@@ -728,7 +728,9 @@
         return `
           <div class="chart-card chart-card-wide">
             <div class="chart-card-head">
-              ${logoHtml(prod.id, "product-logo-sm")}
+              <div class="chart-brand" aria-label="${escapeHtml(prod.label)}">
+                ${logoHtml(prod.id, "product-logo-sm")}
+              </div>
               <span class="chart-card-title">${escapeHtml(prod.label)}</span>
             </div>
             ${clientPlatformReleaseGraphSvg(prod.id)}
